@@ -4,7 +4,7 @@ import { BEFORE_AFTER } from '../../config/data';
 
 export default function BeforeAfter() {
     return (
-        <section style={{ background: "#FAFBFC", padding: "clamp(40px, 8vw, 80px) 0" }}>
+        <section style={{ background: "#FAFBFC", padding: "clamp(28px, 5vw, 56px) 0" }}>
             <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px" }}>
                 <SectionHead
                     light

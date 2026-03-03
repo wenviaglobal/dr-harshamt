@@ -32,7 +32,7 @@ export default function FAQSection() {
     useFAQSchema();
 
     return (
-        <section id="faq" style={{ background: "#FAFBFC", padding: "clamp(40px, 8vw, 90px) 0" }}>
+        <section id="faq" style={{ background: "#FAFBFC", padding: "clamp(28px, 5vw, 56px) 0" }}>
             <div style={{ maxWidth: 740, margin: "0 auto", padding: "0 24px" }}>
                 <SectionHead
                     light

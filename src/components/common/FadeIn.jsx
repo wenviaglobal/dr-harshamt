@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-export default function FadeIn({ children, delay = 0 }) {
+export default function FadeIn({ children, delay = 0, style: extraStyle }) {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
 
@@ -29,6 +29,7 @@ export default function FadeIn({ children, delay = 0 }) {
         <div
             ref={ref}
             style={{
+                ...extraStyle,
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
                 transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',

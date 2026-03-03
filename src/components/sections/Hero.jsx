@@ -87,13 +87,18 @@ export default function Hero() {
                             <p style={{
                                 fontFamily: "'Roboto', sans-serif",
                                 fontSize: 13, color: "#0D9488",
-                                fontWeight: 600, marginBottom: 6
+                                fontWeight: 600, marginBottom: 4
                             }}>{DOC.training}</p>
+                            <p style={{
+                                fontFamily: "'Roboto', sans-serif",
+                                fontSize: 13, color: "#0D9488",
+                                fontWeight: 600, marginBottom: 6
+                            }}>{DOC.training2}</p>
                             <p style={{
                                 fontFamily: "'Roboto', sans-serif",
                                 fontSize: 14, color: "#1F2937",
                                 fontWeight: 700, marginBottom: 20
-                            }}>{DOC.cofounder}</p>
+                            }}>{DOC.director}</p>
                         </FadeIn>
 
                         <FadeIn delay={0.18}>
@@ -115,7 +120,7 @@ export default function Hero() {
                         </FadeIn>
 
                         <FadeIn delay={0.26}>
-                            <div style={{ display: "flex", flexWrap: "wrap", gap: 14 }}>
+                            <div style={{ display: "flex", flexWrap: "wrap", gap: 14, alignItems: "center" }}>
                                 <button
                                     onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
                                     style={{
@@ -147,6 +152,16 @@ export default function Hero() {
                                     onMouseEnter={(e) => e.target.style.background = "#EFF6FF"}
                                     onMouseLeave={(e) => e.target.style.background = "#FFFFFF"}
                                 >View Treatments</button>
+                                <a
+                                    href={`tel:${DOC.phone.replace(/\s/g, '')}`}
+                                    style={{
+                                        display: "inline-flex", alignItems: "center", gap: 8,
+                                        color: "#374151", fontSize: 15, fontWeight: 600,
+                                        fontFamily: "'Poppins', sans-serif",
+                                        textDecoration: "none", padding: "14px 20px",
+                                        borderRadius: 12, transition: "all 0.2s ease"
+                                    }}
+                                >📞 {DOC.phone}</a>
                             </div>
                         </FadeIn>
 

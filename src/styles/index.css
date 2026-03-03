@@ -293,7 +293,7 @@ button {
    ═══════════════════════════════════════════════════════════ */
 
 section {
-  padding: 5rem 0;
+  padding: 0;
 }
 
 .section-light {
@@ -330,7 +330,7 @@ section {
   }
 
   section {
-    padding: 3rem 0;
+    padding: 0;
   }
 
   /* Navbar Mobile */
@@ -357,7 +357,7 @@ section {
 /* Mobile Extra Small */
 @media (max-width: 480px) {
   section {
-    padding: 2.5rem 0;
+    padding: 0;
   }
 
   .btn {
@@ -450,5 +450,31 @@ section {
   }
   .hex-item span {
     font-size: 9px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ABOUT / KNOW YOUR DOCTOR RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .about-stats-row {
+    gap: 10px !important;
+  }
+  .about-stats-row > div {
+    flex: 1 1 45% !important;
+    min-width: 0 !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GLOBAL MOBILE TIGHTENING
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 640px) {
+  /* Tighter horizontal padding on small screens */
+  section > div {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 }

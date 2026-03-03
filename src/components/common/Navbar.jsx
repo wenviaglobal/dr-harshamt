@@ -63,23 +63,13 @@ export default function Navbar({ onNav }) {
                         color: "#fff",
                         fontFamily: "'Roboto Slab', serif"
                     }}>H</div>
-                    <div>
-                        <div style={{
-                            color: "#1F2937",
-                            fontSize: 16,
-                            fontWeight: 700,
-                            fontFamily: "'Poppins', sans-serif",
-                            lineHeight: 1.2
-                        }}>Dr. Harsha M T</div>
-                        <div style={{
-                            color: "#6B7280",
-                            fontSize: 11,
-                            fontFamily: "'Poppins', sans-serif",
-                            letterSpacing: "0.05em",
-                            textTransform: "uppercase",
-                            fontWeight: 500
-                        }}>Interventional Radiologist</div>
-                    </div>
+                    <div style={{
+                        color: "#1F2937",
+                        fontSize: 16,
+                        fontWeight: 700,
+                        fontFamily: "'Poppins', sans-serif",
+                        lineHeight: 1.2
+                    }}>DR. HARSHA M T</div>
                 </div>
 
                 {/* Desktop Navigation */}

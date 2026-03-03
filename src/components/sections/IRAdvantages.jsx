@@ -70,7 +70,7 @@ export default function IRAdvantages() {
     const hexSize = 130;
 
     return (
-        <section style={{ background: "#F8FAFC", padding: "clamp(40px, 8vw, 80px) 0" }}>
+        <section style={{ background: "#F8FAFC", padding: "clamp(28px, 5vw, 56px) 0" }}>
             <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
 
                 {/* Section heading */}
@@ -105,13 +105,13 @@ export default function IRAdvantages() {
                         <Hexagon item={HEXAGONS[2]} size={hexSize} delay={0.16} />
                     </div>
                     {/* Row 2: 2 hexagons offset + center */}
-                    <div className="hex-row" style={{ display: "flex", gap: 6, justifyContent: "center", marginTop: -20 }}>
+                    <div className="hex-row" style={{ display: "flex", gap: 6, justifyContent: "center", marginTop: -8 }}>
                         <Hexagon item={HEXAGONS[3]} size={hexSize} delay={0.24} />
                         <Hexagon item={HEXAGONS[4]} size={hexSize} delay={0.32} />
                         <Hexagon item={HEXAGONS[5]} size={hexSize} delay={0.40} />
                     </div>
                     {/* Row 3: 2 hexagons */}
-                    <div className="hex-row" style={{ display: "flex", gap: 6, justifyContent: "center", marginTop: -20 }}>
+                    <div className="hex-row" style={{ display: "flex", gap: 6, justifyContent: "center", marginTop: -8 }}>
                         <Hexagon item={HEXAGONS[6]} size={hexSize} delay={0.48} />
                         <Hexagon item={HEXAGONS[7]} size={hexSize} delay={0.56} />
                     </div>
@@ -222,37 +222,6 @@ export default function IRAdvantages() {
                     )}
                 </AnimatePresence>
 
-                {/* Bottom CTA */}
-                <FadeIn delay={0.1}>
-                    <div style={{
-                        background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
-                        borderRadius: 20, padding: "clamp(24px, 4vw, 36px) clamp(20px, 4vw, 40px)",
-                        display: "flex", flexWrap: "wrap",
-                        alignItems: "center", justifyContent: "space-between", gap: 20
-                    }}>
-                        <div>
-                            <div style={{
-                                fontSize: "clamp(17px, 2.2vw, 22px)", fontWeight: 700,
-                                color: "#fff", fontFamily: "'Poppins', sans-serif", marginBottom: 6
-                            }}>You don't have to choose between effectiveness and comfort.</div>
-                            <div style={{
-                                fontSize: 14, color: "rgba(255,255,255,0.5)",
-                                fontFamily: "'Roboto', sans-serif"
-                            }}>IR gives you both — expert treatment, minimal disruption to your life.</div>
-                        </div>
-                        <button
-                            onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                            style={{
-                                background: "linear-gradient(135deg, #0D9488, #0F766E)",
-                                border: "none", color: "#fff",
-                                padding: "14px 32px", borderRadius: 10,
-                                fontSize: 15, fontWeight: 600,
-                                cursor: "pointer", fontFamily: "'Roboto', sans-serif",
-                                whiteSpace: "nowrap"
-                            }}
-                        >Book a Free Consultation</button>
-                    </div>
-                </FadeIn>
             </div>
         </section>
     );

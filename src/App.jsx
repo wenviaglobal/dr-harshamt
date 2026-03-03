@@ -2,20 +2,15 @@ import { useState, useEffect, useCallback } from 'react';
 import usePageSEO from './hooks/usePageSEO';
 import Navbar from './components/common/Navbar';
 import Hero from './components/sections/Hero';
-import SocialProof from './components/sections/SocialProof';
-import About from './components/sections/About';
-import IRSection from './components/sections/IRSection';
 import ConditionsCollage from './components/sections/ConditionsCollage';
 import ServicesSection from './components/sections/ServicesSection';
+import IRSection from './components/sections/IRSection';
 import IRAdvantages from './components/sections/IRAdvantages';
-import AnatomyViewer3D from './components/sections/AnatomyViewer3D';
 import BeforeAfter from './components/sections/BeforeAfter';
-import WhySection from './components/sections/WhySection';
-import Journey from './components/sections/Journey';
 import Testimonials from './components/sections/Testimonials';
-import Publications from './components/sections/Publications';
 import BlogSection from './components/sections/BlogSection';
 import FAQSection from './components/sections/FAQSection';
+import About from './components/sections/About';
 import ContactSection from './components/sections/ContactSection';
 import Footer from './components/common/Footer';
 import WAB from './components/common/WAB';
@@ -105,20 +100,15 @@ function App() {
             {page === "home" ? (
                 <main>
                     <Hero />
-                    <SocialProof />
-                    <About />
-                    <IRSection />
                     <ConditionsCollage onTreatment={goToTreatment} />
                     <ServicesSection onTreatment={goToTreatment} />
+                    <IRSection />
                     <IRAdvantages />
-                    <AnatomyViewer3D />
                     <BeforeAfter />
-                    <WhySection />
-                    <Journey />
                     <Testimonials />
-                    <Publications />
                     <BlogSection onBlog={goToBlog} />
                     <FAQSection />
+                    <About />
                     <ContactSection />
                     <Footer />
                 </main>

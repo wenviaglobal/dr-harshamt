@@ -4,58 +4,109 @@ import FadeIn from '../common/FadeIn';
 import { DOC, IMG } from '../../config/data';
 
 const GALLERY = [
+    { img: DOC.photo, label: "Dr. Harsha M T" },
+    { img: DOC.photoScrubs, label: "Performing Procedures" },
+    { img: DOC.photoApron, label: "In Consultation" },
     { img: IMG.gallery1, label: "Procedure in Progress" },
     { img: IMG.gallery2, label: "Post-procedure Consultation" },
     { img: IMG.gallery3, label: "Conference Presentation" },
-    { img: IMG.gallery4, label: "Cath Lab" },
-    { img: IMG.varicose, label: "Varicose Vein Procedure" },
-    { img: IMG.thyroid, label: "Thyroid Ablation" },
 ];
 
+const TRAINING = [
+    { inst: "PGIMER", loc: "Chandigarh", icon: "🏛️", degree: "MD Radio-diagnosis & IR" },
+    { inst: "AIIMS", loc: "Rishikesh", icon: "🎓", degree: "Fellowship VIR" },
+    { inst: "SNUH", loc: "South Korea", icon: "🌏", degree: "Fellowship VIR" },
+    { inst: "IEO", loc: "Milan, Italy", icon: "🇮🇹", degree: "Thyroid Thermal Ablation" },
+];
+
+const shieldClip = "polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%)";
+
+function ShieldBadge({ item, delay = 0 }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay, duration: 0.5 }}
+            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+            style={{
+                flex: "1 1 140px",
+                maxWidth: 180,
+                cursor: "default"
+            }}
+        >
+            <div style={{
+                clipPath: shieldClip,
+                background: "linear-gradient(180deg, #1E3A5F, #0B1D33)",
+                padding: 3,
+            }}>
+                <div style={{
+                    clipPath: shieldClip,
+                    background: "linear-gradient(180deg, #EFF6FF, #DBEAFE)",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "28px 12px 36px",
+                    textAlign: "center",
+                    minHeight: 150,
+                }}>
+                    <div style={{ fontSize: 32, marginBottom: 8 }}>{item.icon}</div>
+                    <div style={{
+                        fontSize: 16, fontWeight: 800, color: "#1E3A5F",
+                        fontFamily: "'Poppins', sans-serif",
+                        letterSpacing: "0.02em", marginBottom: 2
+                    }}>{item.inst}</div>
+                    <div style={{
+                        fontSize: 11, color: "#2563EB", fontWeight: 600,
+                        fontFamily: "'Roboto', sans-serif", marginBottom: 6
+                    }}>{item.loc}</div>
+                    <div style={{
+                        fontSize: 10, color: "#6B7280",
+                        fontFamily: "'Roboto', sans-serif",
+                        lineHeight: 1.4
+                    }}>{item.degree}</div>
+                </div>
+            </div>
+        </motion.div>
+    );
+}
+
 export default function About() {
-    const [galleryIdx, setGalleryIdx] = useState(null);
+    const [galleryIdx, setGalleryIdx] = useState(0);
 
     return (
-        <section id="about" style={{ background: "#FAFBFC", padding: "clamp(40px, 8vw, 90px) 0" }}>
+        <section id="about" style={{ background: "#FAFBFC", padding: "clamp(28px, 5vw, 56px) 0" }}>
             <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
 
                 {/* ── Section title ── */}
-                <div style={{ textAlign: "center", marginBottom: 52 }}>
-                    <span style={{
-                        display: "inline-block",
-                        fontSize: 11, fontWeight: 700,
-                        letterSpacing: "0.12em", textTransform: "uppercase",
-                        color: "#2563EB",
-                        background: "rgba(37,99,235,0.08)",
-                        padding: "6px 16px", borderRadius: 100, marginBottom: 14,
-                        fontFamily: "'Roboto', sans-serif"
-                    }}>Know Your Doctor</span>
-                    <h2 style={{
-                        fontFamily: "'Poppins', sans-serif",
-                        fontSize: "clamp(26px, 3.5vw, 38px)",
-                        fontWeight: 800, color: "#071426",
-                        lineHeight: 1.15, marginBottom: 12, letterSpacing: "-0.02em"
-                    }}>Dr. Harsha M T</h2>
-                    <p style={{
-                        fontFamily: "'Roboto', sans-serif",
-                        fontSize: 16, color: "#6B7280",
-                        maxWidth: 580, margin: "0 auto", lineHeight: 1.7
-                    }}>{DOC.titleFull}</p>
-                    <p style={{
-                        fontFamily: "'Roboto', sans-serif",
-                        fontSize: 13, color: "#0D9488",
-                        marginTop: 6, fontWeight: 600
-                    }}>{DOC.cofounder}</p>
-                </div>
+                <FadeIn>
+                    <div style={{ textAlign: "center", marginBottom: 32 }}>
+                        <span style={{
+                            display: "inline-block",
+                            fontSize: 11, fontWeight: 700,
+                            letterSpacing: "0.12em", textTransform: "uppercase",
+                            color: "#2563EB",
+                            background: "rgba(37,99,235,0.08)",
+                            padding: "6px 16px", borderRadius: 100, marginBottom: 14,
+                            fontFamily: "'Roboto', sans-serif"
+                        }}>Know Your Doctor</span>
+                        <h2 style={{
+                            fontFamily: "'Poppins', sans-serif",
+                            fontSize: "clamp(26px, 3.5vw, 38px)",
+                            fontWeight: 800, color: "#071426",
+                            lineHeight: 1.15, letterSpacing: "-0.02em"
+                        }}>Dr. Harsha M T</h2>
+                    </div>
+                </FadeIn>
 
-                {/* ── Main bio ── */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 40, marginBottom: 56 }}>
-                    {/* Bio + Photo */}
-                    <FadeIn delay={0.1} style={{ flex: "1 1 480px", minWidth: 280 }}>
-                        {/* Doctor photo */}
+                {/* ── Photo + Bio side-by-side ── */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 32, marginBottom: 40 }}>
+                    {/* Photo */}
+                    <FadeIn delay={0.1} style={{ flex: "1 1 320px", minWidth: 260, maxWidth: 420 }}>
                         <div style={{
                             borderRadius: 20, overflow: "hidden",
-                            marginBottom: 24, maxHeight: 340, position: "relative",
+                            position: "relative",
                             border: "3px solid #2563EB",
                             boxShadow: "0 12px 40px rgba(37,99,235,0.12)"
                         }}>
@@ -63,7 +114,7 @@ export default function About() {
                                 src={DOC.photo}
                                 alt={`${DOC.name} — Interventional Radiologist in Bengaluru`}
                                 loading="lazy"
-                                style={{ width: "100%", height: 340, objectFit: "cover", objectPosition: "top" }}
+                                style={{ width: "100%", height: "clamp(280px, 50vw, 400px)", objectFit: "cover", objectPosition: "top" }}
                             />
                             <div style={{
                                 position: "absolute", bottom: 0, left: 0, right: 0,
@@ -74,12 +125,14 @@ export default function About() {
                                 <div style={{ color: "#5EEAD4", fontSize: 12, fontFamily: "'Roboto', sans-serif", marginTop: 2 }}>{DOC.qualsBadge}</div>
                             </div>
                         </div>
+                    </FadeIn>
 
-                        {/* Bio intro */}
+                    {/* Bio text */}
+                    <FadeIn delay={0.2} style={{ flex: "1 1 400px", minWidth: 280 }}>
                         <p style={{
                             fontFamily: "'Roboto', sans-serif",
                             fontSize: 15, color: "rgba(7,20,38,0.65)",
-                            lineHeight: 1.85, marginBottom: 14
+                            lineHeight: 1.85, marginBottom: 16
                         }}>
                             Dr. Harsha M T is a highly credentialed Consultant Vascular & Interventional Radiologist and Endovascular Specialist. With a career built on training from the absolute best medical institutions in India and the world, Dr. Harsha brings cutting-edge, minimally invasive solutions to complex vascular problems.
                         </p>
@@ -91,109 +144,81 @@ export default function About() {
                             He combines the precision of radiology with the clinical expertise of a surgeon to treat conditions like Varicose Veins, Uterine Fibroids, and Thyroid Nodules without the need for open surgery.
                         </p>
 
-                        {/* Training heading */}
-                        <h3 style={{
-                            fontFamily: "'Poppins', sans-serif",
-                            fontSize: 18, fontWeight: 700, color: "#1F2937",
-                            marginBottom: 16
-                        }}>World-Class Qualifications & Training</h3>
-
-                        {/* Training cards */}
-                        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-                            {[
-                                {
-                                    inst: "PGIMER, Chandigarh",
-                                    degree: "MD in Radio-diagnosis & Interventional Radiology",
-                                    detail: "Completed residency at the Postgraduate Institute of Medical Education and Research (PGIMER), consistently ranked among the top medical research institutes in India. He also served as Senior Resident at this institute."
-                                },
-                                {
-                                    inst: "AIIMS, Rishikesh",
-                                    degree: "Fellowship in Vascular & Interventional Radiology",
-                                    detail: "Trained at All India Institute of Medical Sciences (AIIMS), the apex medical institute of the country, mastering complex vascular interventions."
-                                },
-                                {
-                                    inst: "SNUH, South Korea",
-                                    degree: "Fellowship in Vascular & Interventional Radiology",
-                                    detail: "Advanced training at Seoul National University Hospital (SNUH) — a world-renowned centre for medical innovation and advanced vascular care."
-                                },
-                            ].map((t, i) => (
-                                <div key={i} style={{
-                                    background: "#fff", border: "1px solid #E5E7EB",
-                                    borderRadius: 12, padding: "16px 18px",
-                                    borderLeft: "3px solid #2563EB"
-                                }}>
-                                    <div style={{ fontSize: 14, fontWeight: 700, color: "#2563EB", fontFamily: "'Poppins', sans-serif", marginBottom: 2 }}>{t.inst}</div>
-                                    <div style={{ fontSize: 13, fontWeight: 600, color: "#1F2937", fontFamily: "'Roboto', sans-serif", marginBottom: 6 }}>{t.degree}</div>
-                                    <div style={{ fontSize: 13, color: "#6B7280", fontFamily: "'Roboto', sans-serif", lineHeight: 1.7 }}>{t.detail}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </FadeIn>
-
-                    {/* Right column: Certifications + Co-founder */}
-                    <FadeIn delay={0.2} style={{ flex: "1 1 320px", minWidth: 280 }}>
-                        <h3 style={{
-                            fontFamily: "'Poppins', sans-serif",
-                            fontSize: 18, fontWeight: 700, color: "#1F2937",
-                            marginBottom: 16
-                        }}>Global Board Certifications</h3>
-
-                        <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 28 }}>
-                            {[
-                                { abbr: "EBIR", full: "European Board of Interventional Radiology", note: "A gold-standard qualification in the field" },
-                                { abbr: "EDiR", full: "European Diploma in Radiology", note: "Demonstrating comprehensive diagnostic expertise" },
-                                { abbr: "Dip. ICRI", full: "Diploma of the Indian College of Radiology and Imaging", note: "National-level certification in radiology" },
-                            ].map((c, i) => (
-                                <div key={i} style={{
-                                    background: "#fff", border: "1px solid #E5E7EB",
-                                    borderRadius: 12, padding: "14px 16px",
-                                    display: "flex", gap: 12, alignItems: "flex-start"
-                                }}>
-                                    <div style={{
-                                        background: "rgba(37,99,235,0.08)", borderRadius: 8,
-                                        padding: "6px 10px", flexShrink: 0,
-                                        fontSize: 12, fontWeight: 700, color: "#2563EB",
-                                        fontFamily: "'Poppins', sans-serif"
-                                    }}>{c.abbr}</div>
-                                    <div>
-                                        <div style={{ fontSize: 14, fontWeight: 600, color: "#1F2937", fontFamily: "'Roboto', sans-serif", marginBottom: 2 }}>{c.full}</div>
-                                        <div style={{ fontSize: 12, color: "#6B7280", fontFamily: "'Roboto', sans-serif" }}>{c.note}</div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* IEO Milan */}
-                        <div style={{
-                            background: "linear-gradient(135deg, rgba(37,99,235,0.04), rgba(37,99,235,0.02))",
-                            border: "1px solid rgba(37,99,235,0.12)",
-                            borderRadius: 12, padding: "16px 18px", marginBottom: 20
-                        }}>
-                            <div style={{ fontSize: 13, fontWeight: 700, color: "#2563EB", fontFamily: "'Poppins', sans-serif", marginBottom: 4 }}>Thyroid Ablation Training</div>
-                            <div style={{ fontSize: 13, color: "#4B5563", fontFamily: "'Roboto', sans-serif", lineHeight: 1.7 }}>
-                                Exclusively trained in thyroid thermal ablation at the European Institute of Oncology (IEO), Milan, Italy — one of the world's premier cancer centres.
-                            </div>
-                        </div>
-
-                        {/* Co-founder card */}
+                        {/* Director card */}
                         <div style={{
                             background: "#2563EB", borderRadius: 12,
                             padding: "18px 20px", color: "#fff"
                         }}>
-                            <div style={{ fontSize: 15, fontWeight: 700, fontFamily: "'Poppins', sans-serif", marginBottom: 4 }}>Co-founder, VENUVA VASCULAR CENTER</div>
+                            <div style={{ fontSize: 15, fontWeight: 700, fontFamily: "'Poppins', sans-serif", marginBottom: 4 }}>Director, VENUVA VASCULAR CENTER</div>
                             <div style={{ fontSize: 13, color: "rgba(255,255,255,0.8)", fontFamily: "'Roboto', sans-serif", lineHeight: 1.6 }}>
                                 Bringing advanced Interventional Radiology accessible to patients in Bengaluru who previously had no alternative to surgery.
                             </div>
                         </div>
                     </FadeIn>
-
                 </div>
 
-                {/* Stats row - centered */}
-                <FadeIn delay={0.2}>
+                {/* ── World-Class Qualifications & Training — Shield Badges ── */}
+                <FadeIn>
+                    <h3 style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        fontSize: "clamp(18px, 2.5vw, 22px)", fontWeight: 700, color: "#1F2937",
+                        textAlign: "center", marginBottom: 32
+                    }}>World-Class Qualifications & Training</h3>
+                </FadeIn>
+
+                <div style={{
+                    display: "flex", flexWrap: "wrap", gap: 20,
+                    justifyContent: "center", marginBottom: 36
+                }}>
+                    {TRAINING.map((t, i) => (
+                        <ShieldBadge key={i} item={t} delay={i * 0.1} />
+                    ))}
+                </div>
+
+                {/* ── Global Board Certifications ── */}
+                <FadeIn>
+                    <h3 style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        fontSize: "clamp(18px, 2.5vw, 22px)", fontWeight: 700, color: "#1F2937",
+                        textAlign: "center", marginBottom: 24
+                    }}>Global Board Certifications</h3>
+                </FadeIn>
+
+                <div style={{
+                    display: "flex", flexWrap: "wrap", gap: 14,
+                    justifyContent: "center", marginBottom: 36
+                }}>
+                    {[
+                        { abbr: "EBIR", full: "European Board of Interventional Radiology" },
+                        { abbr: "EDiR", full: "European Diploma in Radiology" },
+                        { abbr: "Dip. ICRI", full: "Diploma — Indian College of Radiology & Imaging" },
+                    ].map((c, i) => (
+                        <FadeIn key={i} delay={i * 0.08}>
+                            <div style={{
+                                background: "#fff", border: "2px solid #2563EB",
+                                borderRadius: 14, padding: "20px 24px",
+                                textAlign: "center", minWidth: 200,
+                                boxShadow: "0 2px 12px rgba(37,99,235,0.08)"
+                            }}>
+                                <div style={{
+                                    fontSize: 22, fontWeight: 800, color: "#2563EB",
+                                    fontFamily: "'Poppins', sans-serif", marginBottom: 6,
+                                    letterSpacing: "0.04em"
+                                }}>{c.abbr}</div>
+                                <div style={{
+                                    fontSize: 12, color: "#6B7280",
+                                    fontFamily: "'Roboto', sans-serif", lineHeight: 1.5
+                                }}>{c.full}</div>
+                            </div>
+                        </FadeIn>
+                    ))}
+                </div>
+
+                {/* ── Numericals (Stats) ── */}
+                <FadeIn delay={0.1}>
                     <div className="about-stats-row" style={{
                         display: "flex", gap: 14, flexWrap: "wrap",
-                        justifyContent: "center", maxWidth: 720, margin: "0 auto 56px"
+                        justifyContent: "center", maxWidth: 720, margin: "0 auto 36px"
                     }}>
                         {[
                             { v: DOC.exp, l: "Years Experience" },
@@ -213,8 +238,7 @@ export default function About() {
                     </div>
                 </FadeIn>
 
-
-                {/* ── Gallery Carousel ── */}
+                {/* ── Gallery ── */}
                 <FadeIn>
                     <div>
                         <h3 style={{
@@ -232,9 +256,9 @@ export default function About() {
                             }}>
                                 <AnimatePresence mode="wait">
                                     <motion.img
-                                        key={galleryIdx ?? 0}
-                                        src={GALLERY[galleryIdx ?? 0].img}
-                                        alt={`${GALLERY[galleryIdx ?? 0].label} — Dr. Harsha M T, Interventional Radiologist Bengaluru`}
+                                        key={galleryIdx}
+                                        src={GALLERY[galleryIdx].img}
+                                        alt={`${GALLERY[galleryIdx].label} — Dr. Harsha M T, Interventional Radiologist Bengaluru`}
                                         loading="lazy"
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
@@ -243,7 +267,6 @@ export default function About() {
                                         style={{ width: "100%", height: "100%", objectFit: "cover" }}
                                     />
                                 </AnimatePresence>
-                                {/* Label overlay */}
                                 <div style={{
                                     position: "absolute", bottom: 0, left: 0, right: 0,
                                     background: "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.6) 100%)",
@@ -252,16 +275,13 @@ export default function About() {
                                     <div style={{
                                         fontSize: 15, fontWeight: 600, color: "#fff",
                                         fontFamily: "'Poppins', sans-serif"
-                                    }}>{GALLERY[galleryIdx ?? 0].label}</div>
+                                    }}>{GALLERY[galleryIdx].label}</div>
                                 </div>
                             </div>
 
                             {/* Prev / Next buttons */}
                             <button
-                                onClick={() => setGalleryIdx(p => {
-                                    const cur = p ?? 0;
-                                    return cur === 0 ? GALLERY.length - 1 : cur - 1;
-                                })}
+                                onClick={() => setGalleryIdx(p => p === 0 ? GALLERY.length - 1 : p - 1)}
                                 style={{
                                     position: "absolute", top: "50%", left: 10,
                                     transform: "translateY(-50%)",
@@ -274,10 +294,7 @@ export default function About() {
                                 }}
                             >&lsaquo;</button>
                             <button
-                                onClick={() => setGalleryIdx(p => {
-                                    const cur = p ?? 0;
-                                    return (cur + 1) % GALLERY.length;
-                                })}
+                                onClick={() => setGalleryIdx(p => (p + 1) % GALLERY.length)}
                                 style={{
                                     position: "absolute", top: "50%", right: 10,
                                     transform: "translateY(-50%)",
@@ -301,36 +318,12 @@ export default function About() {
                                     key={i}
                                     onClick={() => setGalleryIdx(i)}
                                     style={{
-                                        width: (galleryIdx ?? 0) === i ? 24 : 10,
+                                        width: galleryIdx === i ? 24 : 10,
                                         height: 10, borderRadius: 5, border: "none",
-                                        background: (galleryIdx ?? 0) === i ? "#2563EB" : "#D1D5DB",
+                                        background: galleryIdx === i ? "#2563EB" : "#D1D5DB",
                                         cursor: "pointer", transition: "all 0.3s ease", padding: 0
                                     }}
                                 />
-                            ))}
-                        </div>
-
-                        {/* Thumbnail strip */}
-                        <div style={{
-                            display: "flex", justifyContent: "center",
-                            gap: 8, marginTop: 16, flexWrap: "wrap"
-                        }}>
-                            {GALLERY.map((g, i) => (
-                                <div
-                                    key={i}
-                                    onClick={() => setGalleryIdx(i)}
-                                    style={{
-                                        width: 80, height: 56, borderRadius: 8,
-                                        overflow: "hidden", cursor: "pointer",
-                                        border: (galleryIdx ?? 0) === i ? "2px solid #2563EB" : "2px solid transparent",
-                                        opacity: (galleryIdx ?? 0) === i ? 1 : 0.6,
-                                        transition: "all 0.2s ease"
-                                    }}
-                                >
-                                    <img src={g.img} alt={`${g.label} — Dr. Harsha M T gallery`}
-                                        loading="lazy"
-                                        style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                                </div>
                             ))}
                         </div>
                     </div>

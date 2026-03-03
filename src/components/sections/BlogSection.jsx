@@ -6,7 +6,7 @@ export default function BlogSection({ onBlog }) {
     return (
         <section id="blog" style={{
             background: "#F8FAFC",
-            padding: "clamp(40px, 8vw, 90px) 0"
+            padding: "clamp(28px, 5vw, 56px) 0"
         }}>
             <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
                 <SectionHead

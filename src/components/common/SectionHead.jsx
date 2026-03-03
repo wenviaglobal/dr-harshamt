@@ -1,6 +1,6 @@
 export default function SectionHead({ sup, title, desc }) {
     return (
-        <div style={{ textAlign: "center", marginBottom: 52 }}>
+        <div style={{ textAlign: "center", marginBottom: 36 }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
                 <div style={{ width: 24, height: 1, background: "rgba(13,148,136,0.4)" }} />
                 <span style={{

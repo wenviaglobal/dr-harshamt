@@ -2,9 +2,9 @@ import { DOC, NAV, LOCATIONS } from '../../config/data';
 
 export default function Footer() {
     return (
-        <footer style={{ background: "#050E1C", padding: "60px 0 30px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <footer style={{ background: "#0F172A", padding: "48px 0 24px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
             <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(240px, 100%), 1fr))", gap: 40, marginBottom: 50 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))", gap: 32, marginBottom: 36 }}>
                     {/* About */}
                     <div>
                         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
@@ -12,7 +12,7 @@ export default function Footer() {
                                 width: 40,
                                 height: 40,
                                 borderRadius: "50%",
-                                background: "linear-gradient(135deg, #0D9488, #14B8A6)",
+                                background: "linear-gradient(135deg, #2563EB, #3B82F6)",
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
@@ -21,10 +21,7 @@ export default function Footer() {
                                 color: "#fff",
                                 fontFamily: "'Roboto Slab', serif"
                             }}>H</div>
-                            <div>
-                                <div style={{ color: "#fff", fontSize: 15, fontWeight: 600, fontFamily: "'Roboto', sans-serif" }}>Dr. Harsha M T</div>
-                                <div style={{ color: "rgba(255,255,255,0.4)", fontSize: 10, fontFamily: "'Roboto', sans-serif" }}>Interventional Radiologist</div>
-                            </div>
+                            <div style={{ color: "#fff", fontSize: 15, fontWeight: 600, fontFamily: "'Roboto', sans-serif" }}>Dr. Harsha M T</div>
                         </div>
                         <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.6, fontFamily: "'Roboto', sans-serif" }}>
                             {DOC.tagline}
@@ -45,7 +42,7 @@ export default function Footer() {
                                         textDecoration: "none",
                                         fontFamily: "'Roboto', sans-serif"
                                     }}
-                                    onMouseEnter={e => e.target.style.color = "#14B8A6"}
+                                    onMouseEnter={e => e.target.style.color = "#3B82F6"}
                                     onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.5)"}
                                 >{n.label}</a>
                             ))}
@@ -56,18 +53,24 @@ export default function Footer() {
                     <div>
                         <h4 style={{ fontSize: 14, fontWeight: 700, color: "#fff", marginBottom: 16, fontFamily: "'Roboto', sans-serif" }}>Contact</h4>
                         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", fontFamily: "'Roboto', sans-serif" }}>
+                            <a href={`tel:${DOC.phone.replace(/\\s/g, '')}`} style={{
+                                fontSize: 13, color: "rgba(255,255,255,0.5)", fontFamily: "'Roboto', sans-serif",
+                                textDecoration: "none"
+                            }}>
                                 📞 {DOC.phone}
-                            </div>
-                            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", fontFamily: "'Roboto', sans-serif" }}>
-                                ✉️ {DOC.email}
-                            </div>
+                            </a>
+                            <a href={`https://wa.me/${DOC.wa}`} target="_blank" rel="noopener noreferrer" style={{
+                                fontSize: 13, color: "rgba(255,255,255,0.5)", fontFamily: "'Roboto', sans-serif",
+                                textDecoration: "none"
+                            }}>
+                                💬 Chat on WhatsApp
+                            </a>
                         </div>
                     </div>
 
-                    {/* Hours */}
+                    {/* Locations */}
                     <div>
-                        <h4 style={{ fontSize: 14, fontWeight: 700, color: "#fff", marginBottom: 16, fontFamily: "'Roboto', sans-serif" }}>Clinic Hours</h4>
+                        <h4 style={{ fontSize: 14, fontWeight: 700, color: "#fff", marginBottom: 16, fontFamily: "'Roboto', sans-serif" }}>Locations</h4>
                         {LOCATIONS.map((loc, i) => (
                             <div key={i} style={{ marginBottom: i < LOCATIONS.length - 1 ? 14 : 0 }}>
                                 <div style={{
@@ -75,18 +78,18 @@ export default function Footer() {
                                     fontFamily: "'Roboto', sans-serif", marginBottom: 3
                                 }}>🏥 {loc.name}</div>
                                 <div style={{
-                                    fontSize: 13, color: "rgba(255,255,255,0.5)",
-                                    fontFamily: "'Roboto', sans-serif", lineHeight: 1.6, paddingLeft: 22
-                                }}>
-                                    <div>{loc.days}</div>
-                                    <div style={{ color: "#14B8A6", fontWeight: 600 }}>{loc.time}</div>
-                                </div>
+                                    fontSize: 12, color: "rgba(255,255,255,0.4)",
+                                    fontFamily: "'Roboto', sans-serif", paddingLeft: 22
+                                }}>{loc.address}</div>
+                                {loc.time && (
+                                    <div style={{
+                                        fontSize: 12, color: "#3B82F6",
+                                        fontWeight: 600, fontFamily: "'Roboto', sans-serif",
+                                        paddingLeft: 22, marginTop: 2
+                                    }}>{loc.time}</div>
+                                )}
                             </div>
                         ))}
-                        <div style={{
-                            fontSize: 13, color: "rgba(255,255,255,0.4)",
-                            fontFamily: "'Roboto', sans-serif", marginTop: 10
-                        }}>Sunday: Closed</div>
                     </div>
                 </div>
 
@@ -96,15 +99,12 @@ export default function Footer() {
                     borderTop: "1px solid rgba(255,255,255,0.06)",
                     display: "flex",
                     flexWrap: "wrap",
-                    justifyContent: "space-between",
+                    justifyContent: "center",
                     alignItems: "center",
                     gap: 16
                 }}>
                     <div style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", fontFamily: "'Roboto', sans-serif" }}>
                         © {new Date().getFullYear()} Dr. Harsha M T. All rights reserved.
-                    </div>
-                    <div style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", fontFamily: "'Roboto', sans-serif" }}>
-                        Reg. No: {DOC.reg}
                     </div>
                 </div>
             </div>

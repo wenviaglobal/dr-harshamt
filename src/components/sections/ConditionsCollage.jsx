@@ -23,7 +23,7 @@ export default function ConditionsCollage({ onTreatment }) {
     return (
         <section style={{
             background: "linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 50%, #F8FAFC 100%)",
-            padding: "clamp(40px, 8vw, 80px) 0",
+            padding: "clamp(28px, 5vw, 56px) 0",
             position: "relative",
             overflow: "hidden"
         }}>
@@ -42,18 +42,7 @@ export default function ConditionsCollage({ onTreatment }) {
             <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 1 }}>
 
                 {/* Section heading */}
-                <div style={{ textAlign: "center", marginBottom: 48 }}>
-                    <span style={{
-                        display: "inline-block",
-                        fontSize: 11, fontWeight: 700,
-                        letterSpacing: "0.12em", textTransform: "uppercase",
-                        color: "#2563EB",
-                        background: "rgba(37,99,235,0.08)",
-                        border: "1px solid rgba(37,99,235,0.15)",
-                        padding: "6px 16px", borderRadius: 100, marginBottom: 14,
-                        fontFamily: "'Poppins', sans-serif"
-                    }}>Conditions We Treat</span>
-
+                <div style={{ textAlign: "center", marginBottom: 32 }}>
                     <h2 style={{
                         fontFamily: "'Poppins', sans-serif",
                         fontSize: "clamp(26px, 3.5vw, 38px)",

@@ -26,7 +26,7 @@ export default function Testimonials() {
     return (
         <section style={{
             background: "#FFFFFF",
-            padding: "clamp(40px, 8vw, 80px) 0",
+            padding: "clamp(28px, 5vw, 56px) 0",
             position: "relative",
             overflow: "hidden"
         }}>
@@ -41,7 +41,7 @@ export default function Testimonials() {
             <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
                 {/* Section heading */}
                 <FadeIn>
-                    <div style={{ textAlign: "center", marginBottom: 48 }}>
+                    <div style={{ textAlign: "center", marginBottom: 32 }}>
                         <span style={{
                             display: "inline-block", fontSize: 11, fontWeight: 700,
                             letterSpacing: "0.12em", textTransform: "uppercase",
