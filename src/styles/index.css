@@ -42,9 +42,9 @@
   --color-info: #3B82F6;
 
   /* Backgrounds */
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F8FAFC;
-  --bg-tertiary: #EFF6FF;
+  --bg-primary: #f8f6f1;
+  --bg-secondary: #f3f1eb;
+  --bg-tertiary: #faf9f6;
 
   /* Text Colors */
   --text-primary: #1F2937;
@@ -341,6 +341,14 @@ section {
   .mob-btn {
     display: block !important;
   }
+  .mob-menu-container {
+    display: block !important;
+  }
+}
+
+/* Failsafe for mobile menu on desktop */
+.mob-menu-container {
+  display: none;
 }
 
 /* Mobile Small Screens */

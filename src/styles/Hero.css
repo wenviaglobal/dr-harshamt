@@ -1,6 +1,7 @@
 .hero-section {
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
     min-height: 100vh;
     min-height: 100dvh;
     padding: 0;
@@ -23,7 +24,7 @@
 .hero-container {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 100px 48px 60px;
+    padding: 80px 48px 60px;
     width: 100%;
     position: relative;
     z-index: 1;
@@ -31,7 +32,8 @@
 
 @media (max-width: 768px) {
     .hero-container {
-        padding: 80px 20px 40px;
+        padding: 110px 20px 40px; /* Increased to clear floating navbar at 24px + 68px */
+        text-align: center;
     }
 }
 
@@ -47,6 +49,7 @@
     flex: 1 1 600px;
     min-width: 280px;
     max-width: 800px;
+    margin-top: 20px;
 }
 
 .hero-badge {
@@ -58,6 +61,17 @@
     border-radius: 100px;
     padding: 8px 18px;
     margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+    .hero-badge {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 6px 14px;
+    }
+    .hero-badge-text {
+        font-size: 13px;
+    }
 }
 
 .hero-badge-dot {
@@ -112,6 +126,12 @@
     margin-bottom: 24px;
 }
 
+@media (max-width: 768px) {
+    .hero-training-list {
+        justify-content: center;
+    }
+}
+
 .hero-training-item {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
@@ -141,8 +161,34 @@
 .hero-btns {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 16px;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .hero-btns {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-btns {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .hero-btns > * {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+.hero-phone-link {
+    transition: all 0.3s ease;
+}
+
+.hero-phone-link:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
 }
 
 .hero-stats {
@@ -195,6 +241,15 @@
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
 }
 
+@media (max-width: 768px) {
+    .hero-stat-val {
+        font-size: clamp(26px, 8vw, 32px);
+    }
+    .hero-stat-lbl {
+        font-size: 11px;
+    }
+}
+
 .hero-stat-lbl {
     font-family: 'Roboto', sans-serif;
     font-size: 13px;
@@ -209,7 +264,28 @@
     flex: 1 1 380px;
     max-width: 380px;
     width: 100%;
-    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+    .hero-image-wrap {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto 60px;
+    }
+    .hero-image-card {
+        width: 85%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image-card {
+        max-width: 260px; /* Small mobile size */
+    }
 }
 
 .hero-image-card {

@@ -69,7 +69,6 @@ export default function BlogPage({ id, onBack }) {
 
     return (
         <div style={{ background: "#FAFBFC", minHeight: "100vh" }}>
-            <div style={{ height: 60 }} />
 
             {/* Hero */}
             <div style={{ position: "relative", height: 380, overflow: "hidden" }}>

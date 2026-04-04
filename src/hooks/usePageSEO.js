@@ -47,11 +47,25 @@ function setSchema(schema) {
     }
 }
 
+function setPreload(url) {
+    let el = document.querySelector('link[rel="preload"][as="image"]');
+    if (el) el.remove();
+    if (url) {
+        el = document.createElement('link');
+        el.setAttribute('rel', 'preload');
+        el.setAttribute('as', 'image');
+        el.setAttribute('href', url);
+        el.setAttribute('fetchpriority', 'high');
+        document.head.appendChild(el);
+    }
+}
+
 export default function usePageSEO({
     title,
     description,
     path = '/',
     image,
+    preload,
     type = 'website',
     schema,
 } = {}) {
@@ -88,6 +102,12 @@ export default function usePageSEO({
         // JSON-LD Schema
         setSchema(schema);
 
-        return () => setSchema(null);
-    }, [title, description, path, image, type, schema]);
+        // Preload Image
+        setPreload(preload);
+
+        return () => {
+            setSchema(null);
+            setPreload(null);
+        };
+    }, [title, description, path, image, preload, type, schema]);
 }

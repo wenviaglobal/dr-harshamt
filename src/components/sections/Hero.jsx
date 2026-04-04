@@ -87,10 +87,15 @@ export default function Hero() {
                                 </button>
                                 <a
                                     href={`tel:${DOC.phone.replace(/\s/g, '')}`}
-                                    className="btn btn-secondary"
-                                    style={{ padding: "14px 20px", background: "transparent" }}
+                                    className="btn btn-secondary hero-phone-link"
+                                    style={{ padding: "0px", background: "transparent", border: "none" }}
                                 >
-                                    <Phone size={18} style={{ marginRight: 8 }} /> {DOC.phone}
+                                    <div style={{ display: "flex", alignItems: "center", gap: 8, color: "var(--color-primary-600)", fontWeight: 700 }}>
+                                        <div style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(37,99,235,0.08)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                            <Phone size={18} />
+                                        </div>
+                                        <span>{DOC.phone}</span>
+                                    </div>
                                 </a>
                             </div>
                         </FadeIn>
@@ -115,7 +120,7 @@ export default function Hero() {
                                             width: "100%",
                                             height: "100%",
                                             objectFit: "cover",
-                                            objectPosition: "top",
+                                            objectPosition: HERO_PHOTOS[active].pos,
                                             position: "absolute"
                                         }}
                                     />

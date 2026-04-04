@@ -37,9 +37,9 @@ const IMG = {
   blog6: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&h=500&fit=crop",
   sparsh: "https://www.sparshhospital.com/wp-content/uploads/2025/06/new-logo.svg",
   gallery1: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=300&fit=crop",
-  gallery2: "https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=400&h=300&fit=crop",
-  gallery3: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop",
-  gallery4: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=400&h=300&fit=crop",
+  // gallery2: "https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=400&h=300&fit=crop",
+  // gallery3: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop",
+  // gallery4: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=400&h=300&fit=crop",
 };
 
 const AFFILIATIONS = [

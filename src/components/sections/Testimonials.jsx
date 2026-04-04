@@ -72,7 +72,7 @@ export default function Testimonials() {
 
                 {/* ── Featured Testimonial (compacted large card) ── */}
                 <FadeIn delay={0.08}>
-                    <div style={{ marginBottom: 32, minHeight: 300, position: "relative" }}>
+                    <div style={{ marginBottom: 32, minHeight: "clamp(400px, 80vw, 500px)", position: "relative" }}>
                         <AnimatePresence initial={false}>
                             <motion.div
                                 key={active}
@@ -124,14 +124,13 @@ export default function Testimonials() {
                                 {/* Author row */}
                                 <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
                                     <div style={{
-                                        width: 48, height: 48, borderRadius: "50%",
-                                        background: "linear-gradient(135deg, #0D9488, #14B8A6)",
-                                        display: "flex", alignItems: "center",
-                                        justifyContent: "center", fontSize: 20,
-                                        fontWeight: 700, color: "#fff",
-                                        fontFamily: "'Roboto', sans-serif"
+                                        width: 54, height: 54, borderRadius: "50%",
+                                        overflow: "hidden",
+                                        border: "2px solid #fff",
+                                        boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                                        background: "linear-gradient(135deg, #0D9488, #14B8A6)"
                                     }}>
-                                        {TESTIMONIALS[active]?.a?.charAt(0)}
+                                        <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${TESTIMONIALS[active]?.a || "patient"}`} alt="Patient" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                                     </div>
                                     <div>
                                         <div style={{
@@ -206,17 +205,12 @@ export default function Testimonials() {
                             {/* Author */}
                             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                                 <div style={{
-                                    width: 32, height: 32, borderRadius: "50%",
-                                    background: i === active
-                                        ? "linear-gradient(135deg, #0D9488, #14B8A6)"
-                                        : "#E5E7EB",
-                                    display: "flex", alignItems: "center",
-                                    justifyContent: "center", fontSize: 13,
-                                    fontWeight: 700,
-                                    color: i === active ? "#fff" : "#9CA3AF",
-                                    fontFamily: "'Roboto', sans-serif"
+                                    width: 36, height: 36, borderRadius: "50%",
+                                    overflow: "hidden",
+                                    border: "1px solid #fff",
+                                    background: i === active ? "linear-gradient(135deg, #0D9488, #14B8A6)" : "#E5E7EB"
                                 }}>
-                                    {t.a?.charAt(0)}
+                                    <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${t.a || "patient"}`} alt="Patient" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                                 </div>
                                 <div>
                                     <div style={{

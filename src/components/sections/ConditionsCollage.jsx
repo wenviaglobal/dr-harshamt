@@ -30,7 +30,7 @@ export default function ConditionsCollage({ onTreatment }) {
     const OVERLAP = Math.round(HEX_H * 0.25);
 
     return (
-        <section style={{
+        <section id="services" style={{
             background: "linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 50%, #F8FAFC 100%)",
             padding: "clamp(28px, 5vw, 56px) 0",
             position: "relative",

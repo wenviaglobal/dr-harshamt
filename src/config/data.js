@@ -47,9 +47,9 @@ export const DOC = {
     loc: "SPARSH Hospital & Venuva Vascular Center, Bengaluru",
     time: "Mon – Sat",
     photo: "https://www.sparshhospital.com/wp-content/uploads/2024/05/Dr.-Harsha-M-T.jpg",
-    photoApron: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=800&fit=crop",
-    photoScrubs: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&h=800&fit=crop",
-    photoSuit: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=600&h=800&fit=crop",
+    // photoApron: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=800&fit=crop",
+    // photoScrubs: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&h=800&fit=crop",
+    // photoSuit: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=600&h=800&fit=crop",
 };
 
 /* ─── IMAGES ─── */
@@ -73,9 +73,9 @@ export const IMG = {
     ir: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&h=500&fit=crop",
     sparsh: "https://www.sparshhospital.com/wp-content/uploads/2025/06/new-logo.svg",
     gallery1: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=300&fit=crop",
-    gallery2: "https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=400&h=300&fit=crop",
-    gallery3: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop",
-    gallery4: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=400&h=300&fit=crop",
+    // gallery2: "https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=400&h=300&fit=crop",
+    // gallery3: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop",
+    // gallery4: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=400&h=300&fit=crop",
     blog1: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&h=500&fit=crop",
     blog2: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&h=500&fit=crop",
     blog3: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=500&fit=crop",
@@ -87,9 +87,9 @@ export const IMG = {
 /* ─── NAVIGATION ─── */
 export const NAV = [
     { label: "Services", href: "/services" },
-    { label: "About", href: "/about" },
-    { label: "Blog", href: "#blog" },
-    { label: "FAQ", href: "#faq" },
+    { label: "About Me", href: "/about" },
+    { label: "Blogs", href: "#blog" },
+    { label: "FAQs", href: "#faq" },
 ];
 
 /* ─── CREDENTIALS ─── */
@@ -330,36 +330,63 @@ export const TREATMENTS = {
     "varicose-veins": {
         icon: Activity,
         title: "Varicose Veins Treatment",
-        sub: "Laser Treatment (EVLA)",
+        sub: "EVLA / VenaSeal / MWA",
         hero: "/services/VARICOSE VEINS.webp",
         stats: [
             { v: "98%", l: "Success Rate" },
             { v: "30min", l: "Procedure Time" },
             { v: "Same Day", l: "Discharge" }
         ],
-        overview: "Varicose veins are enlarged, twisted veins that usually appear on the legs due to poor blood circulation. They occur when the valves inside the veins stop functioning properly, causing blood to pool inside the vein instead of flowing back to the heart. This condition may cause symptoms such as leg pain, swelling, heaviness, itching, skin discoloration, and visible bulging veins.",
-        why: "Traditional varicose vein surgery often requires large incisions, general anaesthesia, and longer recovery periods. Modern EVLA laser treatment is performed through a tiny needle puncture under local anaesthesia. Benefits include no large surgical cuts, no stitches, minimal pain, and faster recovery. Most patients return to normal activities within 24 hours.",
+        overview: "Varicose veins are swollen, twisted veins that usually appear on the legs. They occur when the small valves in the veins stop working properly, allowing blood to flow backward and pool (venous reflux).",
+        symptoms: [
+            "Visible, bulging blue or dark purple veins.",
+            "Aching, heavy legs, especially after standing for long periods.",
+            "Swelling (Edema) in the ankles or feet.",
+            "Skin changes, such as itching, thinning, or dark discoloration."
+        ],
+        risks: "Ignoring varicose veins is not just a cosmetic issue. Over time, the increased pressure can lead to spontaneous bleeding, painful blood clots, and chronic venous ulcers (open sores) that are difficult to heal.",
+        why: "We offer advanced, image-guided thermal and non-thermal solutions that require no hospital stay and minimal downtime.",
+        methods: [
+            {
+                title: "1. Thermal Ablation (EVLA / RFA / MWA)",
+                description: "These methods use heat to seal the diseased vein from the inside. Once the vein is closed, the body naturally reroutes blood to healthy veins. EVLA uses targeted laser energy, RFA uses radiofrequency energy via a specialized catheter, and MWA uses microwave energy for even faster treatment times.",
+                list: [
+                    { name: "EVLA (Laser)", desc: "Endovenous Laser Ablation uses targeted light energy to close the vein." },
+                    { name: "RFA (Radiofrequency)", desc: "Uses thermal energy delivered via a specialized catheter." },
+                    { name: "MWA (Microwave)", desc: "The latest advancement using microwave energy for precision and speed." }
+                ]
+            },
+            {
+                title: "2. VenaSeal™ (Medical Glue)",
+                description: "VenaSeal is a revolutionary 'non-thermal' and 'non-tumescent' treatment. A small amount of medical-grade adhesive is injected into the diseased vein via a catheter. The vein is held shut for a few seconds until it seals permanently.",
+                list: [
+                    { name: "No Heat Risk", desc: "No risk of nerve injury as no thermal energy is used." },
+                    { name: "No Tumescent", desc: "Eliminates the need for multiple local anesthetic injections." },
+                    { name: "Superior Comfort", desc: "Often removes the need for compression stockings after the procedure." }
+                ]
+            }
+        ],
         how: [
-            "Local anaesthesia is applied to the affected vein.",
-            "A thin laser fiber is inserted through a small needle puncture in the skin.",
-            "Laser energy is delivered inside the vein, sealing the diseased vein from within.",
-            "Blood automatically reroutes through healthy veins.",
-            "The procedure usually takes 30–45 minutes, and patients can walk immediately after treatment."
+            "A detailed Doppler ultrasound scan identifies the diseased veins.",
+            "Under local anaesthesia, a thin catheter or fiber is inserted into the vein.",
+            "The vein is sealed using either heat (Laser/RFA) or medical glue (VenaSeal).",
+            "Blood flow is immediately redirected to healthy deep veins.",
+            "Patients can walk immediately and return home the same day."
         ],
         comparison: {
             title: "Surgery vs Pinhole Treatment",
-            headers: ["Traditional Surgery", "Pinhole EVLA Treatment"],
+            headers: ["Traditional Surgery", "Pinhole IR Treatment"],
             rows: [
                 ["Large incision (5–15 cm)", "Tiny puncture (2–3 mm)"],
                 ["Requires stitches", "No stitches"],
                 ["Hospital stay required", "Same day discharge"],
-                ["Longer recovery", "Faster recovery"]
+                ["Longer recovery", "Return to work in 1-2 days"]
             ]
         },
-        recovery: "Recovery after EVLA treatment is quick and comfortable. Patients can walk immediately after the procedure. Most return to work within 1–2 days. Compression stockings are worn for 1–2 weeks, and regular exercise can resume within one week.",
-        suitable: "Varicose vein treatment is recommended for patients who experience leg pain, swelling, visible bulging veins, or skin discoloration. A Doppler ultrasound scan is usually performed to evaluate the veins and determine the best treatment option.",
-        seoTitle: "Varicose Veins Treatment in Bengaluru | EVLA Laser Treatment | Dr Harsha M T",
-        seoDescription: "Get advanced varicose veins treatment in Bengaluru with EVLA laser therapy by Dr Harsha M T. Walk-in walk-out procedure with minimal pain, no surgery, and faster recovery."
+        recovery: "Patients are usually walking immediately after the procedure and return to work within 1–2 days. For VenaSeal, the recovery is even more comfortable, often without the need for compression stockings.",
+        seoTitle: "Varicose Veins Treatment in Bengaluru | EVLA & VenaSeal | Dr Harsha M T",
+        suitable: "Treatment is recommended for those experiencing discomfort or functional issues, including Pain, aching, or heaviness in the legs, especially after prolonged standing or sitting.",
+        seoDescription: "Advanced varicose veins treatment in Bengaluru by Dr Harsha M T. Offering EVLA, RFA, and VenaSeal medical glue for a quick, pinhole recovery with no surgery."
     },
     "uterine-fibroid": {
         icon: Stethoscope,
@@ -371,14 +398,32 @@ export const TREATMENTS = {
             { v: "45min", l: "Procedure Time" },
             { v: "Next Day", l: "Discharge" }
         ],
-        overview: "Uterine fibroids are non-cancerous growths that develop in the uterus, affecting up to 70% of women by age 50. Common symptoms include heavy or prolonged menstrual bleeding, pelvic pain, frequent urination, and abdominal swelling.",
-        why: "Traditional treatments like hysterectomy or myomectomy require surgery and longer recovery. UFE is a minimally invasive pinhole procedure that treats fibroids by blocking their blood supply. Benefits include no major surgery, uterus preserved, faster recovery, and no visible surgical scars.",
+        overview: "Uterine fibroids are non-cancerous growths in the uterus that affect millions of women. While often benign, they can significantly impact your quality of life.",
+        symptoms: [
+            "Heavy or prolonged menstrual bleeding (leading to anemia).",
+            "Pelvic pain or a feeling of 'bulk' and pressure.",
+            "Frequent urination due to bladder compression.",
+            "Pain during intercourse."
+        ],
+        risks: "Ignoring fibroids can lead to chronic fatigue from blood loss, severe pelvic pain, and complications during pregnancy. Over time, untreated fibroids may continue to grow, making less invasive treatments more difficult.",
+        why: "Uterine Fibroid Embolization (UFE) is a breakthrough, minimally invasive procedure that treats fibroids without the need for a hysterectomy or major surgery.",
+        methods: [
+            {
+                title: "Uterine Fibroid Embolization (UFE)",
+                description: "A breakthrough, minimally invasive procedure that treats fibroids without the need for a hysterectomy or major surgery.",
+                list: [
+                    { name: "The Procedure", desc: "An interventional radiologist makes a tiny incision in the wrist or groin to thread a thin catheter toward the uterine arteries." },
+                    { name: "The Mechanism", desc: "Tiny particles (embolic agents) are injected to block the blood supply to the fibroids. Deprived of oxygen and nutrients, the fibroids shrink and die." },
+                    { name: "The Benefits", desc: "Because the uterus is preserved, UFE offers a much shorter recovery time (typically 1 week) than surgery, minimal scarring, and high success rates in symptom relief." }
+                ]
+            }
+        ],
         how: [
-            "A small catheter is inserted through an artery in the wrist or groin.",
-            "Using X-ray imaging, the catheter is guided to the uterine arteries supplying the fibroids.",
-            "Tiny embolisation particles are injected into the artery.",
-            "These particles block the blood supply to the fibroid.",
-            "Without blood supply, the fibroid gradually shrinks over 3–6 months."
+            "Local anesthesia is applied (no general anesthesia required).",
+            "A tiny 2mm puncture is made (usually at the wrist or groin).",
+            "A catheter is guided to the uterine arteries under X-ray imaging.",
+            "Embolic particles are released to block the fibroid's blood supply.",
+            "The catheter is removed and the puncture site is covered with a small bandage."
         ],
         comparison: {
             title: "Surgery vs Pinhole UFE Treatment",
@@ -386,118 +431,209 @@ export const TREATMENTS = {
             rows: [
                 ["Large abdominal incision", "Tiny 2–3 mm puncture"],
                 ["General anaesthesia", "Local anaesthesia"],
-                ["Hospital stay", "Short stay"],
-                ["Longer recovery", "Faster recovery"],
+                ["Hospital stay (3-5 days)", "Next day discharge"],
+                ["Recovery (4-6 weeks)", "Recovery (typically 1 week)"],
                 ["Possible uterus removal", "Uterus preserved"]
             ]
         },
-        recovery: "Recovery after UFE is generally smooth. Most patients stay in the hospital overnight. Mild cramping may occur for a few days, and normal activities usually resume within 1–2 weeks. Fibroids continue shrinking gradually over several months.",
-        suitable: "UFE is recommended for women with heavy bleeding, pelvic pain, or those who want to avoid hysterectomy. It may not be recommended for women actively trying to conceive.",
+        recovery: "UFE offers a significantly shorter recovery time—typically 1 week—compared to 4–6 weeks for traditional surgery. Most patients return to normal activities quickly with minimal scarring and high success in symptom relief.",
+        suitable: "UFE is recommended for women with heavy bleeding, pelvic pain, or those who want to avoid hysterectomy. It's a gold-standard alternative to invasive surgery.",
         seoTitle: "Uterine Fibroid Embolisation in Bengaluru | UFE Treatment | Dr Harsha M T",
-        seoDescription: "Get advanced uterine fibroid treatment in Bengaluru with Uterine Fibroid Embolisation (UFE) by Dr Harsha M T. Minimally invasive procedure with no surgery and faster recovery."
+        seoDescription: "Advanced uterine fibroid treatment in Bengaluru with Uterine Fibroid Embolisation (UFE) by Dr Harsha M T. Pinhole procedure with no surgery and 1-week recovery."
     },
     "thyroid-nodule": {
         icon: Thermometer,
         title: "Thyroid Nodule Ablation",
-        sub: "Radiofrequency Ablation (RFA)",
+        sub: "RFA / MWA / Scarless",
         hero: "/services/THYROID NODULE ABLATION.webp",
         stats: [
-            { v: "70%", l: "Volume Reduction" },
+            { v: "90%", l: "Benign Rate" },
             { v: "20min", l: "Procedure Time" },
             { v: "Same Day", l: "Discharge" }
         ],
-        overview: "Thyroid nodules are abnormal lumps in the thyroid gland. While most are benign, they can cause neck swelling, difficulty swallowing, voice changes, or cosmetic concerns. Traditional treatment often involves thyroid surgery with general anaesthesia and permanent neck incisions.",
-        why: "Radiofrequency Ablation is a modern image-guided treatment performed using a thin needle instead of surgery. Benefits include no surgical incision on the neck, no stitches or visible scar, preservation of the thyroid gland, and same-day discharge.",
+        overview: "Thyroid nodule is a growth of cells within your thyroid gland. While the discovery of a lump in the neck can be concerning, the vast majority—over 90%—are benign (non-cancerous). However, even benign nodules can cause physical and aesthetic issues as they enlarge.",
+        symptoms: [
+            "Difficulty swallowing or a persistent 'globus' sensation (feeling of a lump in the throat).",
+            "A visible bulge or goiter in the lower neck.",
+            "Mild hoarseness or voice changes if the nodule presses against nerves.",
+            "Frequent cough or tracheal compression."
+        ],
+        risks: "Ignoring a growing benign nodule can lead to worsening tracheal compression, making breathing uncomfortable, or 'toxic' transformation where the nodule begins overproducing thyroid hormones (hyperthyroidism).",
+        why: "Historically, large nodules required a thyroidectomy (surgical removal), involving general anesthesia and permanent neck scars. At Venuva Vascular Center, we offer Thyroid Ablation, a specialized 'pinhole' treatment that preserves your natural thyroid function with no scars.",
+        methods: [
+            {
+                title: "1. Radiofrequency Ablation (RFA)",
+                description: "Under local anesthesia and continuous ultrasound guidance, a very fine needle-electrode is inserted into the nodule. Radiofrequency energy generates localized heat at the needle tip, destroying the tissue.",
+                list: [
+                    { name: "Pinhole Precision", desc: "Destroys nodule tissue while leaving surrounding healthy thyroid intact." },
+                    { name: "Natural Absorption", desc: "Over several months, the body’s immune system naturally absorbs the treated tissue." },
+                    { name: "Significant Shrinkage", desc: "Results in a visible reduction of the nodule size over time." }
+                ]
+            },
+            {
+                title: "2. Microwave Ablation (MWA)",
+                description: "Similar to RFA, but utilizes microwave energy to create a highly predictable and consistent heat zone.",
+                list: [
+                    { name: "Faster Treatment", desc: "MWA is often faster, especially for very large nodules." },
+                    { name: "Cystic Nodule Success", desc: "Particularly effective for nodules containing a high amount of fluid." },
+                    { name: "Consistent Heat", desc: "Provides a very predictable heat zone for larger treatment areas." }
+                ]
+            }
+        ],
         how: [
-            "Local anaesthesia is applied to numb the treatment area.",
-            "A thin RFA needle is inserted into the thyroid nodule using ultrasound guidance.",
-            "Radiofrequency energy generates controlled heat that destroys the nodule tissue.",
-            "The treated nodule gradually shrinks as the body naturally absorbs the tissue.",
-            "The procedure usually takes 15–30 minutes, and patients can go home the same day."
+            "Local anesthesia is applied to the neck area.",
+            "A fine needle is inserted under continuous ultrasound guidance.",
+            "Thermal energy (RFA/MWA) is applied to the nodule internally.",
+            "The procedure takes 15-30 minutes with no general anesthesia.",
+            "Patients recover in 1 hour and leave with only a tiny needle-point mark."
         ],
         comparison: {
-            title: "Surgery vs Pinhole RFA Treatment",
-            headers: ["Traditional Thyroid Surgery", "RFA Pinhole Treatment"],
+            title: "Surgery vs Scarless Ablation",
+            headers: ["Traditional Surgery", "Thyroid Ablation (RFA/MWA)"],
             rows: [
-                ["Neck incision (5–10 cm)", "Needle puncture (2–3 mm)"],
-                ["General anaesthesia", "Local anaesthesia"],
-                ["Visible scar", "No visible scar"],
-                ["Possible thyroid removal", "Thyroid preserved"],
-                ["Hospital stay required", "Same day discharge"]
+                ["Permanent neck scar", "No scars (needle point)"],
+                ["General anesthesia", "Local anesthesia"],
+                ["Lifelong medication often needed", "Preserves natural thyroid function"],
+                ["1-2 days hospital stay", "Same day discharge"]
             ]
         },
-        recovery: "Recovery after RFA treatment is typically quick and comfortable. Patients can go home immediately, with mild neck discomfort for 1–2 days and a return to normal activities the next day. Follow-up ultrasound monitors nodule shrinkage.",
-        suitable: "RFA is recommended for benign thyroid nodules confirmed by biopsy that cause neck swelling, discomfort, or cosmetic concerns.",
-        seoTitle: "Thyroid Nodule Ablation in Bengaluru | Radiofrequency Ablation (RFA) | Dr Harsha M T",
-        seoDescription: "Get scar-free thyroid nodule treatment in Bengaluru with Radiofrequency Ablation (RFA) by Dr Harsha M T. Minimally invasive procedure with no surgery, no thyroid removal, and faster recovery."
+        recovery: "Recovery is remarkably fast. Most patients return to normal activities the next day. Because the healthy thyroid is saved, most patients do NOT need to take daily thyroid tablets after the procedure. The nodule continues to shrink over 3–6 months.",
+        suitable: "Thyroid ablation is recommended for benign thyroid nodules confirmed by biopsy that cause neck swelling, discomfort, or cosmetic concerns.",
+        seoTitle: "Thyroid Nodule Ablation in Bengaluru | Scarless RFA & MWA | Dr Harsha M T",
+        seoDescription: "Advanced scarless thyroid nodule treatment in Bengaluru by Dr Harsha M T. Offering RFA and MWA to shrink nodules without surgery, preserving your thyroid function."
     },
     "varicocele": {
         icon: Baby,
         title: "Varicocele Embolisation",
-        sub: "Minimally Invasive Treatment",
+        sub: "Non-Surgical Male Fertility Treatment",
         hero: "/services/Varicocele Embolisation.webp",
         stats: [
             { v: "95%", l: "Success Rate" },
             { v: "30min", l: "Procedure Time" },
             { v: "Same Day", l: "Discharge" }
         ],
-        overview: "Varicocele is an enlargement of veins in the scrotum, which can lead to pain, discomfort, testicular shrinkage, or fertility problems. It occurs when valves inside the veins do not function properly, causing blood to pool.",
-        why: "Traditional varicocele surgery requires an incision in the groin or abdomen and a longer recovery period. Varicocele embolisation is a modern pinhole procedure performed through a small puncture in the wrist or groin vein. Benefits include no surgical incision, no stitches, faster recovery, and same-day discharge.",
+        overview: "A varicocele is an enlargement of the veins within the scrotum, similar to a varicose vein in the leg. It occurs when valves inside the veins fail to flow blood properly, causing it to pool and swell.",
+        symptoms: [
+            "A dull, aching pain or heaviness in the scrotum.",
+            "Visible 'bag of worms' appearance.",
+            "Testicular atrophy (shrinking)."
+        ],
+        risks: "Ignoring a varicocele can lead to long-term complications, most notably male infertility and decreased testosterone production, as the pooled blood raises the temperature around the testes, damaging sperm quality.",
+        why: "Varicocele Embolization is a modern, minimally invasive solution that avoids the large incisions and longer recovery of traditional surgery. At Venuva Vascular Center, we offer this 'walk-in, walk-out' procedure to restore health and fertility with maximum comfort.",
+        methods: [
+            {
+                title: "Varicocele Embolization",
+                description: "A minimally invasive, image-guided procedure performed by an Interventional Radiologist to block abnormal blood flow.",
+                list: [
+                    { name: "The Process", desc: "A tiny catheter is inserted through a small nick (groin or neck). Using X-ray guidance, the doctor positions it at the affected vein." },
+                    { name: "The Mechanism", desc: "Small coils or sclerosant agents are placed to block the abnormal vein. Blood is then naturally rerouted to healthy veins." },
+                    { name: "The Results", desc: "Relieves pressure and pain instantly, with a much lower risk of infection or recurrence compared to surgical ligation." }
+                ]
+            }
+        ],
         how: [
-            "A thin catheter is inserted through a vein in the wrist or groin.",
-            "Using X-ray imaging, the catheter is guided to the testicular vein responsible for the varicocele.",
-            "Tiny coils or medical glue are placed inside the abnormal vein.",
-            "These materials block the vein, preventing abnormal blood flow.",
-            "Blood flow naturally reroutes through healthy veins, relieving pressure in the scrotal veins."
+            "Local anesthesia is applied to the small entry point (groin or neck).",
+            "A tiny catheter is guided to the testicular vein using high-resolution X-ray.",
+            "Small medical coils or sclerosants are used to close the abnormal vein.",
+            "Normal blood flow is restored to the surrounding healthy veins.",
+            "The procedure is completed in 30–45 minutes with no stitches required."
         ],
         comparison: {
-            title: "Surgery vs Pinhole Varicocele Embolisation",
-            headers: ["Traditional Surgery", "Varicocele Embolisation"],
+            title: "Traditional Surgery vs Pinhole Embolisation",
+            headers: ["Surgical Ligation", "Varicocele Embolisation"],
             rows: [
-                ["Groin incision", "Tiny puncture (2–3 mm)"],
-                ["Requires stitches", "No stitches"],
-                ["Longer recovery", "Faster recovery"],
-                ["Hospital stay", "Same-day discharge"]
+                ["Large groin/abdominal incision", "Tiny 2mm puncture (no stitches)"],
+                ["General anesthesia often required", "Local anesthesia only"],
+                ["Risk of infection & hydrocele", "Minimal risk of complications"],
+                ["Recovery (1–2 weeks)", "Back to work next day"],
+                ["Requires hospital stay", "Same-day 'Walk-in, Walk-out'"]
             ]
         },
-        recovery: "Recovery after embolisation is generally quick and comfortable. Patients usually go home the same day. Mild discomfort may occur for 1–2 days, and light activities can resume within 3–5 days.",
-        suitable: "Varicocele embolisation is recommended for men who experience testicular pain, infertility linked to varicocele, or abnormal semen analysis results.",
+        recovery: "Varicocele embolization is a true 'walk-in, walk-out' procedure. Most patients return to normal activities the very next day with minimal pain and no surgical scars. It offers a much faster recovery and less discomfort than traditional surgery.",
+        suitable: "Embolization is the gold-standard for men experiencing testicular pain, visible varicoceles, or those seeking to improve fertility and testosterone levels.",
         seoTitle: "Varicocele Treatment in Bengaluru | Varicocele Embolisation | Dr Harsha M T",
-        seoDescription: "Advanced varicocele treatment in Bengaluru with minimally invasive varicocele embolisation by Dr Harsha M T. No surgery, faster recovery, and improved fertility outcomes."
+        seoDescription: "Advanced varicocele treatment in Bengaluru with minimally invasive embolisation by Dr Harsha M T. Fix infertility and pain without surgery. Walk-in, walk-out recovery."
     },
     "peripheral-vascular": {
         icon: Activity,
-        title: "Peripheral Vascular Disease Treatment",
-        sub: "Angioplasty & Stenting",
-        hero: "/services/PERIPHERAL VASCULAR DISEASE.webp",
+        title: "Peripheral Vascular / Arterial Disease",
+        sub: "Angioplasty, Stenting & Thrombolysis",
+        hero: "/services/PERIPHERAL VASCULAR DISEASE 1.webp",
         stats: [
             { v: "90%", l: "Success Rate" },
             { v: "45-90m", l: "Procedure Time" },
             { v: "Fast", l: "Recovery" }
         ],
-        overview: "Peripheral Vascular Disease (PVD) occurs when arteries supplying blood to the legs become narrowed or blocked due to plaque buildup. This condition reduces blood flow and can cause symptoms such as leg pain, cramping, numbness, or non-healing wounds.",
-        why: "Traditional bypass surgery for blocked arteries requires large incisions and longer recovery times. Angioplasty is a minimally invasive procedure performed through a small puncture in the wrist or groin. Benefits include no large surgical incision, minimal pain, faster recovery, and improved blood circulation.",
+        overview: "Peripheral vascular disease (PVD) is a progressive circulation disorder characterised by narrowing, blockage or spasms in blood vessels. Arteries are most commonly involved, so it is also called peripheral arterial disease (PAD).",
+        causes: [
+            "Buildup of fatty, cholesterol containing deposits (plaques) on artery walls known as atherosclerosis, which reduces blood flow to the limbs.",
+            "Blood vessel inflammation.",
+            "Injury to the arms or legs.",
+            "Changes in the muscles or ligaments.",
+            "Radiation exposure.",
+            "Infection."
+        ],
+        symptoms: [
+            "Intermittent claudication: Pain after walking a certain distance.",
+            "Hair loss on your legs and feet.",
+            "Numbness or weakness in the legs.",
+            "Brittle, slow-growing toenails.",
+            "Ulcers (open sores) on your feet and legs, which do not heal.",
+            "Changing skin colour on your legs, such as turning paler than usual or blue.",
+            "Shiny skin.",
+            "Wasting (shrinking) of leg muscles."
+        ],
+        risks: "PVD risk factors include smoking, diabetes, family history, high blood pressure, high cholesterol, obesity (BMI over 30), and high levels of the amino acid homocysteine. Risk increases with age, especially over 65 (or over 50 if other risks are present).",
+        methods: [
+            {
+                title: "1. Lifestyle Modifications",
+                description: "Critical habits to slow the progression of atherosclerosis and improve circulation.",
+                list: [
+                    { name: "Smoking Cessation", desc: "Stopping smoking is the most important step in managing PVD." },
+                    { name: "Diet & Weight", desc: "Eating a healthy diet low in fats and maintaining a BMI under 30." },
+                    { name: "Regular Exercise", desc: "Walking regimens to improve muscle oxygenation and collateral flow." },
+                    { name: "Condition Management", desc: "Controlling underlying conditions like diabetes and high blood pressure." }
+                ]
+            },
+            {
+                title: "2. Medication Therapy",
+                description: "Pharmacological interventions to prevent clot formation and manage systemic risk factors.",
+                list: [
+                    { name: "Systemic Care", desc: "Cholesterol tablets, anti-hypertensives, and anti-diabetic medications." },
+                    { name: "Vascular Care", desc: "Blood thinners to prevent arterial blockages and meds for pain management." }
+                ]
+            },
+            {
+                title: "3. Minimally Invasive Procedures",
+                description: "Advanced Interventional Radiology techniques to physically restore blood flow.",
+                list: [
+                    { name: "Angioplasty", desc: "Using a balloon to open narrowed or blocked arteries." },
+                    { name: "Stenting", desc: "Placing a metal mesh tube to keep the artery open long-term." },
+                    { name: "Thrombolysis", desc: "Delivering clot-dissolving medication directly to the site of an acute blockage." }
+                ]
+            }
+        ],
         how: [
-            "A thin catheter is inserted through a small puncture in the wrist or groin artery.",
-            "Using X-ray imaging, the catheter is guided to the blocked artery in the leg.",
-            "A small balloon attached to the catheter is inflated to open the blocked artery.",
-            "In some cases, a stent (metal mesh tube) is placed to keep the artery open.",
-            "The procedure usually takes 45–90 minutes."
+            "A tiny puncture is made (usually at the wrist or groin).",
+            "A thin catheter is guided to the blocked artery using real-time X-ray.",
+            "A balloon is inflated (Angioplasty) and/or a metal mesh tube (Stent) is placed.",
+            "In acute cases, thrombolytic drugs are infused to dissolve blood clots.",
+            "The procedure is completed in 45–90 minutes with zero surgical incisions."
         ],
         comparison: {
-            title: "Surgery vs Pinhole Angioplasty",
-            headers: ["Traditional Bypass Surgery", "Angioplasty Pinhole Treatment"],
+            title: "Traditional Care vs Pinhole PVD Therapy",
+            headers: ["Traditional Bypass Surgery", "Angioplasty & Stenting"],
             rows: [
-                ["Large incision", "Tiny 2–3 mm puncture"],
-                ["Requires stitches", "No stitches"],
-                ["Longer hospital stay", "Short stay"],
-                ["Longer recovery", "Faster recovery"]
+                ["Large surgical incisions", "Tiny 2–3 mm puncture (no stitches)"],
+                ["Hospital stay (5–7 days)", "Next day discharge"],
+                ["Longer recovery (6–8 weeks)", "Fast recovery (1 week)"],
+                ["Higher surgical risk", "Minimally invasive & safer"]
             ]
         },
-        recovery: "Recovery after angioplasty is usually quick. Most patients stay in the hospital overnight. Walking is encouraged soon after the procedure, and normal daily activities can resume within one week.",
-        suitable: "Angioplasty is recommended for patients with leg pain while walking (claudication), non-healing wounds or ulcers, or reduced blood flow due to arterial blockage.",
-        seoTitle: "Peripheral Vascular Disease Treatment in Bengaluru | Angioplasty & Stenting | Dr Harsha M T",
-        seoDescription: "Get advanced Peripheral Vascular Disease (PVD) treatment in Bengaluru with angioplasty and stenting by Dr Harsha M T. Minimally invasive procedure that restores blood flow without open surgery."
+        recovery: "Recovery after angioplasty or stenting is usually quick. Most patients stay in the hospital overnight and return to normal activity within one week. It is a gold-standard alternative to invasive bypass surgery.",
+        suitable: "PVD treatment is recommended for patients with leg pain while walking (claudication), non-healing ulcers, or those at risk of limb loss due to poor circulation.",
+        seoTitle: "Peripheral Vascular Disease Treatment in Bengaluru | PAD Specialist | Dr Harsha M T",
+        seoDescription: "Advanced PVD/PAD treatment in Bengaluru by Dr Harsha M T. Offering angioplasty, stenting, and thrombolysis to restore blood flow without major surgery."
     },
     "deep-vein-thrombosis": {
         icon: Droplet,
@@ -509,35 +645,121 @@ export const TREATMENTS = {
             { v: "Low", l: "PTS Risk" },
             { v: "2-4h", l: "Procedure Time" }
         ],
-        overview: "Deep Vein Thrombosis (DVT) occurs when a blood clot forms in the deep veins of the leg, blocking normal blood flow. If untreated, the clot can travel to the lungs and cause a pulmonary embolism, which is a potentially life-threatening condition.",
-        why: "Traditional treatment with blood thinners prevents clots from growing but does not actively remove existing clots. Catheter-directed thrombolysis delivers clot-dissolving medication directly into the clot. Benefits include faster clot removal, reduced swelling, and lower risk of long-term complications like post-thrombotic syndrome.",
+        overview: "Deep vein thrombosis (DVT) is a medical condition in which a blood clot forms in one or more of the deep veins in the body, typically in the legs. DVT can cause serious health problems because the blood clots can break loose, travel through the bloodstream, and lodge in the lungs, causing a pulmonary embolism (PE).",
+        symptoms: [
+            "Swelling in one leg (rarely both legs).",
+            "Pain or tenderness in the leg, often starting in the calf.",
+            "Red or discolored skin on the leg.",
+            "A feeling of warmth in the affected leg.",
+            "Sometimes, DVT can occur without noticeable symptoms."
+        ],
+        risks: "DVT risk factors include prolonged immobility (long flights/bed rest), injury or surgery, medical conditions (cancer/heart disease), genetics, hormone therapy, pregnancy, obesity, smoking, and age (especially over 60).",
+        causes: [
+            "Prolonged immobility: Long periods of sitting or lying down.",
+            "Injury or surgery: Damage to veins increases clot risk.",
+            "Medical conditions: Cancer, heart disease, inflammatory diseases.",
+            "Genetics: Inherited blood clotting disorders.",
+            "Hormone therapy/birth control pills.",
+            "Pregnancy: Increases pressure in leg and pelvic veins.",
+            "Obesity: Excess weight increases vein pressure.",
+            "Smoking: Affects blood clotting and circulation.",
+            "Age: Risk increases, especially over 60."
+        ],
+        methods: [
+            {
+                title: "1. Anticoagulation Therapy",
+                description: "Blood thinners to prevent the clot from growing and reduce the risk of new clots forming.",
+                list: [
+                    { name: "Medications", desc: "Clot-growth prevention using heparin, LMWH, warfarin, or DOACs." },
+                    { name: "Monitoring", desc: "Regular blood tests to monitor effectiveness and adjust dosages." }
+                ]
+            },
+            {
+                title: "2. Thrombolytic Therapy",
+                description: "Clot-dissolving medications delivered directly to the site of the blockage.",
+                list: [
+                    { name: "Catheter-Directed Thrombolysis", desc: "A catheter delivers clot-dissolving drugs directly to the clot's site." },
+                    { name: "Systemic Thrombolysis", desc: "Drugs administered through an IV line to dissolve clots (less common)." }
+                ]
+            },
+            {
+                title: "3. Mechanical Thrombectomy",
+                description: "Physical removal of the blood clot using specialized catheter-based tools.",
+                list: [
+                    { name: "Catheter-Based Thrombectomy", desc: "Catheter is used to physically remove the clot, often combined with thrombolytics." }
+                ]
+            },
+            {
+                title: "4. Inferior Vena Cava (IVC) Filter",
+                description: "A small metal device placed to catch and prevent clots from traveling to the lungs (PE prevention).",
+                list: [
+                    { name: "IVC Filter Placement", desc: "Used for patients who cannot take anticoagulants or have recurrent clots." }
+                ]
+            },
+            {
+                title: "5. Compression Therapy",
+                description: "Using graduated compression to improve blood flow and reduce complications.",
+                list: [
+                    { name: "Compression Stockings", desc: "Reduces swelling and decreases the risk of post-thrombotic syndrome." }
+                ]
+            },
+            {
+                title: "6. Endovenous Techniques",
+                description: "Minimally invasive heat-based procedures to manage vein sources of DVT.",
+                list: [
+                    { name: "Laser / Radiofrequency Ablation", desc: "Uses energy to close off veins that are the source of the DVT." }
+                ]
+            },
+            {
+                title: "7. Lifestyle & Supportive Care",
+                description: "Daily habits to improve circulation and reduce vein pressure.",
+                list: [
+                    { name: "Active Care", desc: "Includes regular exercise, weight management, and leg elevation." },
+                    { name: "Activity", desc: "Avoiding prolonged immobility and encouraging movement." }
+                ]
+            },
+            {
+                title: "8. Follow-Up & Monitoring",
+                description: "Regular check-ups and imaging to ensure treatment effectiveness and long-term safety.",
+                list: [
+                    { name: "Imaging", desc: "Ultrasounds to monitor the clot status and check for new formations." }
+                ]
+            }
+        ],
         how: [
-            "A small catheter is inserted into the affected vein through a tiny puncture behind the knee or groin.",
-            "Using ultrasound and X-ray guidance, the catheter is positioned directly inside the blood clot.",
-            "Clot-dissolving medication (thrombolytic drug) is slowly infused into the clot.",
-            "In some cases, mechanical thrombectomy devices are used to break up and remove the clot.",
-            "A temporary IVC filter may be placed to prevent clot fragments from reaching the lungs."
+            "Local anesthesia and a tiny puncture (wrist/knee/groin).",
+            "Catheter insertion guided by ultrasound/X-ray to the clot site.",
+            "Clot-dissolving medication infusion or mechanical removal.",
+            "Optional IVC filter placement to prevent PE (Pulmonary Embolism)."
         ],
         comparison: {
-            title: "Surgery vs Pinhole DVT Treatment",
-            headers: ["Traditional Surgery", "Catheter Treatment"],
+            title: "Traditional Care vs Pinhole DVT Therapy",
+            headers: ["Traditional Bed Rest/Thinners", "Advanced IR Treatment"],
             rows: [
-                ["Large surgical incision", "Tiny 2–3 mm puncture"],
-                ["Stitches required", "No stitches"],
-                ["Longer recovery", "Faster recovery"],
-                ["Higher surgical risk", "Minimally invasive"]
+                ["Slow clot resolution", "Rapid clot removal"],
+                ["High risk of long-term PTS", "Lowers PTS risk significantly"],
+                ["Monitoring-only approach", "Active clot-dissolving treatment"],
+                ["Higher risk of PE", "IVC Filter protection available"]
             ]
         },
-        recovery: "Patients are monitored in the hospital for 2–3 days after the procedure. Recovery includes blood-thinning medications for 3–6 months, wearing compression stockings, and a gradual return to normal activity within 1–2 weeks.",
-        suitable: "Catheter-directed thrombolysis is recommended for patients with extensive DVT of the thigh or pelvis, severe swelling, or high risk of post-thrombotic syndrome.",
+        prevention: [
+            "Regular exercise: Leg exercises to improve circulation.",
+            "Frequent movement: Avoid long periods of immobility.",
+            "Healthy weight: Reduces pressure on veins.",
+            "Compression stockings: Wear them if at high risk.",
+            "Hydration: Stay hydrated to reduce clotting risk.",
+            "Medication: Preventive medications if prescribed by a specialist."
+        ],
+        recovery: "Recovery involves monitoring in the hospital for 2–3 days, followed by compression stockings and anticoagulants for 3–6 months. Normal activity typically resumes within 1–2 weeks.",
+        suitable: "Treatment is recommended for extensive DVT of the thigh or pelvis, severe leg swelling, or those at high risk of post-thrombotic syndrome.",
         seoTitle: "Deep Vein Thrombosis Treatment in Bengaluru | DVT Specialist | Dr Harsha M T",
-        seoDescription: "Get advanced Deep Vein Thrombosis (DVT) treatment in Bengaluru with catheter-directed thrombolysis by Dr Harsha M T. Minimally invasive clot removal to prevent pulmonary embolism."
+        seoDescription: "Comprehensive Deep Vein Thrombosis (DVT) treatment in Bengaluru with Dr Harsha M T. Offering thrombolysis, thrombectomy, and IVC filters to prevent PE."
     },
     "musculoskeletal-pain": {
         icon: ActivitySquare,
         title: "Chronic Musculoskeletal Pain Treatment",
         sub: "Transarterial Microembolisation",
-        hero: "/services/CHRONIC PAIN.webp",
+        hero: "/services/CHRONIC MUSCULOSKELETAL PAIN.webp",
         stats: [
             { v: "Same Day", l: "Discharge" },
             { v: "30-60m", l: "Procedure Time" },
@@ -570,35 +792,72 @@ export const TREATMENTS = {
     "liver-cancer": {
         icon: Microscope,
         title: "Liver Cancer Intervention",
-        sub: "TACE, TARE & Ablation",
-        hero: "/services/LIVER CANCER.webp",
+        sub: "Interventional Oncology (HCC & Metastases)",
+        hero: "/services/LIVER CANCER INTERVENTION.webp",
         stats: [
             { v: "Targeted", l: "Therapy" },
             { v: "60min", l: "Procedure Time" },
             { v: "Min", l: "Stay" }
         ],
-        overview: "Liver cancer interventions are suitable for patients where traditional surgery may not always be possible. These minimally invasive procedures target the tumour while sparing healthy liver tissue.",
-        why: "Traditional liver surgery involves large incisions and long hospital stays. Interventional radiology (IR) offers a needle-puncture solution with same-day or next-day discharge, preserving healthy liver tissue.",
+        overview: "Liver cancer can either start in the liver (Primary HCC) or spread there from other organs like the colon or breast (Metastases). Because the liver is a highly vascular organ, it is a common site for tumor growth.",
+        symptoms: [
+            "Unexplained weight loss and loss of appetite.",
+            "Pain or swelling in the upper right abdomen.",
+            "Jaundice: Yellowing of the skin and the whites of the eyes.",
+            "Persistent fatigue and nausea."
+        ],
+        risks: "Ignoring liver tumors can lead to liver failure, internal bleeding due to portal hypertension, and the spread of cancer to other vital organs, making curative treatment impossible.",
+        why: "For patients who are not candidates for traditional surgery or transplant, Interventional Radiology offers 'targeted' therapies that attack the tumor directly while sparing healthy liver tissue. These methods provide a critical lifeline with fewer systemic side effects.",
+        methods: [
+            {
+                title: "1. Tumor Ablation (RFA / MWA)",
+                description: "Best suited for smaller, localized tumors, ablation 'burns' the cancer cells from the inside.",
+                list: [
+                    { name: "The Process", desc: "Under ultrasound or CT guidance, a needle-probe is inserted directly into the tumor." },
+                    { name: "The Mechanism", desc: "Heat (Radiofrequency or Microwave energy) is applied, destroying the cancer cells instantly." },
+                    { name: "The Benefit", desc: "Highly effective, 'pinhole' alternative to surgery with a very short recovery time." }
+                ]
+            },
+            {
+                title: "2. TACE (Chemo-Embolization)",
+                description: "Trans-Arterial Chemo-Embolization delivers concentrated chemo directly to the tumor.",
+                list: [
+                    { name: "The Process", desc: "A micro-catheter is navigated through the hepatic artery to the vessels feeding the tumor." },
+                    { name: "The Mechanism", desc: "Concentrated chemotherapy is injected, followed by embolic particles to 'trap' the drug and cut off blood supply." },
+                    { name: "The Result", desc: "The tumor is starved of nutrients and attacked by chemo, leading to significant shrinkage." }
+                ]
+            },
+            {
+                title: "3. TARE (Radioembolization)",
+                description: "Delivers millions of microscopic radioactive beads (Yttrium-90) to the tumor site.",
+                list: [
+                    { name: "The Process", desc: "Similar to TACE, but instead of chemo, radioactive Y-90 beads are delivered to the tumor." },
+                    { name: "The Mechanism", desc: "Beads emit high-energy radiation over a short distance, destroying the tumor from within its own supply." },
+                    { name: "The Advantage", desc: "Better tolerated than systemic chemo and can treat larger or more complex tumors." }
+                ]
+            }
+        ],
         how: [
-            "A catheter is inserted through a small groin or wrist puncture under local anaesthesia.",
-            "Using X-ray guidance, the catheter reaches the artery feeding the liver tumour.",
-            "Choice of TACE (chemotherapy beads), TARE (radioactive microspheres), or Ablation (heat/microwave energy).",
-            "The procedure typically takes 60 minutes."
+            "Imaging guidance (Ultrasound/CT) is used to locate the tumor precisely.",
+            "A thin needle or catheter is guided to the tumor site through a small entry point.",
+            "Targeted energy (Heat), Chemotherapy, or Radiation is delivered directly to the cancer.",
+            "Blood vessels feeding the tumor are often blocked (Embolized) to starve the cancer.",
+            "The entry point is covered with a bandage; no major surgical incisions are made."
         ],
         comparison: {
-            title: "Surgery vs Pinhole IR Treatment",
-            headers: ["Traditional Surgery", "Pinhole IR Treatment"],
+            title: "Traditional Surgery vs Targeted IR Oncology",
+            headers: ["Traditional Liver Surgery", "Targeted IR Intervention"],
             rows: [
-                ["Large incision", "Tiny 2–3 mm puncture"],
-                ["Stitches required", "No stitches"],
-                ["Long hospital stay", "1 night or same-day discharge"],
-                ["Long recovery", "Faster recovery"]
+                ["Large abdominal incision", "Tiny 2–3 mm puncture"],
+                ["Removal of healthy liver tissue", "Spares healthy liver tissue"],
+                ["Longer hospital stay (7–10 days)", "Next day/Short discharge"],
+                ["Higher systemic side effects", "Localized side effects only"]
             ]
         },
-        recovery: "Most patients stay overnight for observation. Mild post-embolisation syndrome (fever, fatigue) may last 3–5 days. Follow-up imaging is performed at 4–6 weeks to assess tumour response.",
-        suitable: "These interventions are suitable for patients not eligible for surgery, those awaiting liver transplant, or those with liver metastases.",
-        seoTitle: "Liver Cancer Treatment in Bengaluru | TACE & TARE Specialist | Dr Harsha M T",
-        seoDescription: "Get advanced minimally invasive liver cancer treatment in Bengaluru including TACE, TARE, and RFA ablation by Dr Harsha M T."
+        recovery: "Patients are monitored for 24–48 hours depending on the treatment type. Recovery is significantly faster than traditional surgery, and most patients can return to normal activities within a few days.",
+        suitable: "Targeted oncology is recommended for patients with Primary Liver Cancer (HCC) or Liver Metastases who are not surgical candidates or seek to shrink tumors before surgery.",
+        seoTitle: "Liver Cancer Treatment in Bengaluru | TACE, TARE & Ablation | Dr Harsha M T",
+        seoDescription: "Advanced liver cancer treatment in Bengaluru by Dr Harsha M T. Offering targeted therapies like TACE, TARE, RFA, and MWA for HCC and Liver Metastases."
     },
     "prostate-embolisation": {
         icon: Crosshair,

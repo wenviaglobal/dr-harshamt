@@ -28,9 +28,9 @@ export default function BeforeAfter() {
                     paddingBottom: "32px"
                 }}>
                     {BEFORE_AFTER.map((item, i) => (
-                        <FadeIn key={i} delay={i * 0.1}>
+                        <FadeIn key={i} delay={i * 0.1} style={{ flex: "0 0 min(320px, 85vw)" }}>
                             <div style={{
-                                flex: "0 0 320px",
+                                width: "100%",
                                 background: "#fff",
                                 borderRadius: 24,
                                 padding: 32,

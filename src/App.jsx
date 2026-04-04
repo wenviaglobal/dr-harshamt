@@ -3,7 +3,7 @@ import usePageSEO from './hooks/usePageSEO';
 import Navbar from './components/common/Navbar';
 import Hero from './components/sections/Hero';
 import ConditionsCollage from './components/sections/ConditionsCollage';
-import ServicesSection from './components/sections/ServicesSection';
+import HeroServicesSlider from './components/sections/HeroServicesSlider';
 import IRSection from './components/sections/IRSection';
 import CredBar from './components/sections/CredBar';
 import IRAdvantages from './components/sections/IRAdvantages';
@@ -136,6 +136,7 @@ function App() {
         title: DOC.name,
         description: DOC.sub,
         path: '/',
+        preload: DOC.photo,
         schema: medicalSchema
     } : page === 'about' ? {
         title: "Dr Harsha M T | Interventional Radiologist in Bengaluru | Venuva Vascular Center",
@@ -160,15 +161,18 @@ function App() {
     return (
         <>
             <Navbar onNav={(p) => {
-                if (p === "home") goHomeTop();
-                else if (p === "about" || p === "services") setPage(p);
+                const { page: newPage, id } = parseURL("/" + p);
+                setPage(newPage);
+                setBlogId(newPage === 'blog' ? id : null);
+                setTreatmentId(newPage === 'treatment' ? id : null);
+                if (p === "home") window.scrollTo({ top: 0, behavior: "smooth" });
             }} />
             {page === "home" || page === "about" || page === "services" ? (
                 <main>
                     <Hero />
                     <CredBar />
                     <ConditionsCollage onTreatment={goToTreatment} />
-                    <ServicesSection onTreatment={goToTreatment} />
+                    <HeroServicesSlider onTreatment={goToTreatment} />
                     <IRSection />
                     <IRAdvantages />
                     <Suspense fallback={<div style={{ height: 400, background: "#071426" }} />}>

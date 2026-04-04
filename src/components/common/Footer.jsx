@@ -1,3 +1,4 @@
+import { IconBrandWhatsapp } from '@tabler/icons-react';
 import { DOC, NAV, LOCATIONS } from '../../config/data';
 import { Phone, MessageCircle, Building2 } from 'lucide-react';
 
@@ -70,7 +71,7 @@ export default function Footer() {
                                 alignItems: "center",
                                 gap: 8
                             }}>
-                                <MessageCircle size={14} /> Chat on WhatsApp
+                                <IconBrandWhatsapp size={18} /> Chat on WhatsApp
                             </a>
                         </div>
                     </div>

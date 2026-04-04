@@ -9,7 +9,7 @@ const GALLERY = [
     { img: DOC.photo, label: "Dr. Harsha M T" },
     { img: DOC.photoScrubs, label: "Performing Procedures" },
     { img: DOC.photoApron, label: "In Consultation" },
-    { img: IMG.gallery1, label: "Procedure in Progress" },
+    // { img: IMG.gallery1, label: "Procedure in Progress" },
     { img: IMG.gallery2, label: "Post-procedure Consultation" },
     { img: IMG.gallery3, label: "Conference Presentation" },
 ];

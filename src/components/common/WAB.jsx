@@ -9,7 +9,7 @@ export default function WAB() {
             style={{
                 position: "fixed",
                 bottom: 24,
-                left: 24,
+                right: 24,
                 width: 56,
                 height: 56,
                 borderRadius: "50%",

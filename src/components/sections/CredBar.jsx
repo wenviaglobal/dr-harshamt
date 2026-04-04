@@ -40,8 +40,9 @@ export default function CredBar() {
                             <div
                                 key={i}
                                 style={{
-                                    flex: "1 1 200px",
-                                    maxWidth: 270,
+                                    flex: "1 1 240px",
+                                    minHeight: 110,
+                                    maxWidth: 350,
                                     padding: "16px 20px",
                                     borderRadius: 12,
                                     background: "#FFFFFF",
@@ -64,7 +65,7 @@ export default function CredBar() {
                                     fontWeight: 700,
                                     color: "#2563EB",
                                     fontFamily: "'Roboto', sans-serif"
-                                }}>{c.inst.slice(0, 2)}</div>
+                                }}><span style={{ textTransform: "uppercase" }}>{c.inst.slice(0, 2)}</span></div>
                                 <div>
                                     <div style={{
                                         color: "#1F2937",

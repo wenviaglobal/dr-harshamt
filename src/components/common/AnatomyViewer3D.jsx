@@ -260,7 +260,7 @@ export function AnatomyViewer3D() {
               style={{
                 position: "relative",
                 width: "100%",
-                height: 700,
+                height: "clamp(500px, 80vh, 700px)",
                 background: "rgba(255,255,255,0.02)",
                 border: "1px solid rgba(255,255,255,0.06)",
                 borderRadius: 20,
@@ -316,8 +316,8 @@ export function AnatomyViewer3D() {
                     {/* Pulsing Hotspot */}
                     <div style={{
                       position: "relative",
-                      width: 40,
-                      height: 40,
+                      width: "clamp(24px, 4vw, 40px)",
+                      height: "clamp(24px, 4vw, 40px)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center"
@@ -344,8 +344,8 @@ export function AnatomyViewer3D() {
                       
                       {/* Main hotspot */}
                       <div style={{
-                        width: 32,
-                        height: 32,
+                        width: "clamp(20px, 3.2vw, 32px)",
+                        height: "clamp(20px, 3.2vw, 32px)",
                         borderRadius: "50%",
                         background: activeHotspot === key 
                           ? `linear-gradient(135deg, ${hotspot.color}, ${hotspot.color}dd)` 
@@ -359,29 +359,31 @@ export function AnatomyViewer3D() {
                         transition: "all 0.3s ease",
                         transform: activeHotspot === key ? "scale(1.3)" : "scale(1)"
                       }}>
-                        <hotspot.icon size={18} color="#fff" strokeWidth={2} />
+                        <hotspot.icon size="clamp(12px, 2vw, 18px)" color="#fff" strokeWidth={2} />
                       </div>
                     </div>
 
                     {/* Label */}
                     <div style={{
                       position: "absolute",
-                      top: "100%",
+                      top: "115%",
                       left: "50%",
                       transform: "translateX(-50%)",
-                      marginTop: 8,
                       padding: "4px 10px",
                       background: "rgba(7,20,38,0.95)",
                       backdropFilter: "blur(8px)",
                       border: `1px solid ${hotspot.color}44`,
                       borderRadius: 6,
-                      fontSize: 11,
+                      fontSize: "clamp(9px, 1.5vw, 11px)",
                       fontWeight: 600,
                       color: "#fff",
                       fontFamily: "'DM Sans', sans-serif",
                       whiteSpace: "nowrap",
-                      opacity: activeHotspot === key ? 1 : 0.7,
-                      transition: "opacity 0.3s"
+                      opacity: activeHotspot === key ? 1 : 0,
+                      pointerEvents: activeHotspot === key ? "auto" : "none",
+                      transition: "opacity 0.3s",
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
+                      zIndex: 110
                     }}>
                       {hotspot.label}
                     </div>

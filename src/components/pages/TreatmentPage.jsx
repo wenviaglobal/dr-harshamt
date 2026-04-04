@@ -114,7 +114,7 @@ export default function TreatmentPage({ id, onBack, onContact }) {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+    }, [id]);
 
     if (!t) {
         return (
@@ -132,48 +132,49 @@ export default function TreatmentPage({ id, onBack, onContact }) {
 
     return (
         <div style={{ background: "#FAFBFC", minHeight: "100vh" }}>
-            <div style={{ height: 60 }} />
 
             {/* Hero */}
-            <div style={{ position: "relative", height: "clamp(350px, 45vw, 450px)", overflow: "hidden" }}>
+            <div style={{ position: "relative", height: "clamp(450px, 55vw, 600px)", overflow: "hidden" }}>
                 <img
                     src={t.hero}
                     alt={`${t.title} — treatment in Bengaluru by Dr. Harsha M T`}
                     loading="lazy"
-                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }}
                 />
                 <div style={{
                     position: "absolute",
-                    inset: 0,
-                    background: "linear-gradient(180deg, rgba(7,20,38,0.2) 0%, rgba(7,20,38,0.88) 100%)"
-                }} />
-                <div style={{
-                    position: "absolute",
-                    bottom: 36,
+                    bottom: 0,
                     left: 0,
                     right: 0,
-                    maxWidth: 800,
-                    margin: "0 auto",
-                    padding: "0 24px"
+                    padding: "100px 0 60px",
+                    background: "linear-gradient(to top, rgba(7,20,38,0.95) 0%, rgba(7,20,38,0) 100%)"
                 }}>
-                    <h1 style={{
-                        fontFamily: "'Roboto Slab', serif",
-                        fontSize: "clamp(26px, 4vw, 36px)",
-                        fontWeight: 700,
-                        color: "#fff",
-                        lineHeight: 1.2,
-                        marginBottom: 6
-                    }}>{t.title}</h1>
-                    <p style={{
-                        fontFamily: "'Roboto', sans-serif",
-                        fontSize: 15,
-                        color: "#5EEAD4",
-                        fontWeight: 500
-                    }}>{t.sub}</p>
+                    <div style={{
+                        maxWidth: 1260,
+                        margin: "0 auto",
+                        padding: "0 24px"
+                    }}>
+                        <h1 style={{
+                            fontFamily: "'Roboto Slab', serif",
+                            fontSize: "clamp(32px, 5vw, 48px)",
+                            fontWeight: 700,
+                            color: "#fff",
+                            lineHeight: 1.1,
+                            marginBottom: 12,
+                            textShadow: "0 2px 10px rgba(0,0,0,0.3)"
+                        }}>{t.title}</h1>
+                        <p style={{
+                            fontFamily: "'Roboto', sans-serif",
+                            fontSize: 18,
+                            color: "#5EEAD4",
+                            fontWeight: 500,
+                            letterSpacing: "0.02em"
+                        }}>{t.sub}</p>
+                    </div>
                 </div>
             </div>
 
-            <div style={{ maxWidth: 800, margin: "0 auto", padding: "40px 24px 80px" }}>
+            <div style={{ maxWidth: 1260, margin: "0 auto", padding: "60px 24px 100px" }}>
                 <button
                     onClick={onBack}
                     style={{
@@ -194,32 +195,38 @@ export default function TreatmentPage({ id, onBack, onContact }) {
                 > <ArrowLeft size={14} /> Back to Home</button>
 
                 {/* Stats */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginBottom: 40 }}>
+                <div style={{ 
+                    display: "grid", 
+                    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", 
+                    gap: 20, 
+                    marginBottom: 60 
+                }}>
                     {t.stats.map((s, i) => (
                         <div
                             key={i}
                             style={{
-                                flex: "1 1 140px",
                                 background: "linear-gradient(135deg, #071426, #0A1E3D)",
-                                borderRadius: 14,
-                                padding: "20px 24px",
-                                textAlign: "center"
+                                borderRadius: 16,
+                                padding: "32px 24px",
+                                textAlign: "center",
+                                boxShadow: "0 10px 25px -5px rgba(7,20,38,0.1)"
                             }}
                         >
                             <div style={{
                                 fontFamily: "'Roboto Slab', serif",
-                                fontSize: 28,
+                                fontSize: 36,
                                 fontWeight: 700,
                                 color: "#14B8A6",
                                 lineHeight: 1
                             }}>{s.v}</div>
                             <div style={{
                                 fontFamily: "'Roboto', sans-serif",
-                                fontSize: 11,
-                                color: "rgba(255,255,255,0.45)",
-                                marginTop: 6,
-                                letterSpacing: "0.04em",
-                                textTransform: "uppercase"
+                                fontSize: 13,
+                                color: "rgba(255,255,255,0.5)",
+                                marginTop: 10,
+                                letterSpacing: "0.05em",
+                                textTransform: "uppercase",
+                                fontWeight: 600
                             }}>{s.l}</div>
                         </div>
                     ))}
@@ -238,8 +245,85 @@ export default function TreatmentPage({ id, onBack, onContact }) {
                         fontFamily: "'Roboto', sans-serif",
                         fontSize: 15,
                         color: "rgba(7,20,38,0.65)",
-                        lineHeight: 1.8
+                        lineHeight: 1.8,
+                        marginBottom: t.symptoms ? 20 : 0
                     }}>{t.overview}</p>
+
+                    {t.symptoms && (
+                        <div style={{ marginBottom: 24 }}>
+                            <h3 style={{
+                                fontFamily: "'Roboto Slab', serif",
+                                fontSize: 18,
+                                fontWeight: 700,
+                                color: "#071426",
+                                marginBottom: 12
+                            }}>Common Symptoms</h3>
+                            <ul style={{
+                                paddingLeft: "1.2rem",
+                                margin: 0,
+                                color: "rgba(7,20,38,0.65)",
+                                fontFamily: "'Roboto', sans-serif",
+                                fontSize: 14,
+                                lineHeight: 1.8
+                            }}>
+                                {t.symptoms.map((s, idx) => (
+                                    <li key={idx} style={{ marginBottom: 6 }}>{s}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+
+                    {t.causes && (
+                        <div style={{ marginBottom: 24 }}>
+                            <h3 style={{
+                                fontFamily: "'Roboto Slab', serif",
+                                fontSize: 18,
+                                fontWeight: 700,
+                                color: "#071426",
+                                marginBottom: 12
+                            }}>Causes & Risk Factors</h3>
+                            <ul style={{
+                                paddingLeft: "1.2rem",
+                                margin: 0,
+                                color: "rgba(7,20,38,0.65)",
+                                fontFamily: "'Roboto', sans-serif",
+                                fontSize: 14,
+                                lineHeight: 1.8
+                            }}>
+                                {t.causes.map((c, idx) => (
+                                    <li key={idx} style={{ marginBottom: 6 }}>{c}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+
+                    {t.risks && (
+                        <div style={{
+                            padding: 20,
+                            background: "rgba(239, 68, 68, 0.04)",
+                            border: "1px solid rgba(239, 68, 68, 0.1)",
+                            borderRadius: 12,
+                            marginTop: 12
+                        }}>
+                            <h3 style={{
+                                fontFamily: "'Roboto Slab', serif",
+                                fontSize: 17,
+                                fontWeight: 700,
+                                color: "#B91C1C",
+                                marginBottom: 8,
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 8
+                            }}>Clinical Risks & Complications</h3>
+                            <p style={{
+                                fontFamily: "'Roboto', sans-serif",
+                                fontSize: 14,
+                                color: "rgba(185, 28, 28, 0.8)",
+                                lineHeight: 1.7,
+                                margin: 0
+                            }}>{t.risks}</p>
+                        </div>
+                    )}
                 </div>
 
                 {/* Why IR */}
@@ -267,7 +351,7 @@ export default function TreatmentPage({ id, onBack, onContact }) {
 
                 {/* Comparison Table */}
                 {t.comparison && (
-                    <div style={{ marginBottom: 36 }}>
+                    <div style={{ marginBottom: 44 }}>
                         <h2 style={{
                             fontFamily: "'Roboto Slab', serif",
                             fontSize: 22,
@@ -275,9 +359,9 @@ export default function TreatmentPage({ id, onBack, onContact }) {
                             color: "#071426",
                             marginBottom: 18
                         }}>{t.comparison.title}</h2>
-                        <div style={{ 
-                            overflowX: "auto", 
-                            borderRadius: 12, 
+                        <div style={{
+                            overflowX: "auto",
+                            borderRadius: 12,
                             border: "1px solid rgba(0,0,0,0.06)",
                             boxShadow: "0 4px 20px rgba(0,0,0,0.02)"
                         }}>
@@ -285,9 +369,9 @@ export default function TreatmentPage({ id, onBack, onContact }) {
                                 <thead>
                                     <tr style={{ background: "rgba(13,148,136,0.05)" }}>
                                         {t.comparison.headers.map((h, i) => (
-                                            <th key={i} style={{ 
-                                                padding: "16px", 
-                                                textAlign: "left", 
+                                            <th key={i} style={{
+                                                padding: "16px",
+                                                textAlign: "left",
                                                 fontFamily: "'Roboto Slab', serif",
                                                 fontSize: 14,
                                                 color: "#0D9488",
@@ -300,8 +384,8 @@ export default function TreatmentPage({ id, onBack, onContact }) {
                                     {t.comparison.rows.map((row, i) => (
                                         <tr key={i} style={{ borderBottom: i < t.comparison.rows.length - 1 ? "1px solid rgba(0,0,0,0.05)" : "none" }}>
                                             {row.map((cell, j) => (
-                                                <td key={j} style={{ 
-                                                    padding: "14px 16px", 
+                                                <td key={j} style={{
+                                                    padding: "14px 16px",
                                                     fontFamily: "'Roboto', sans-serif",
                                                     fontSize: 14,
                                                     color: "rgba(7,20,38,0.7)"
@@ -314,6 +398,54 @@ export default function TreatmentPage({ id, onBack, onContact }) {
                         </div>
                     </div>
                 )}
+
+                {/* Advanced Methods */}
+                {t.methods && (Array.isArray(t.methods) ? t.methods : [t.methods]).map((group, idx) => (
+                    <div key={idx} style={{ marginBottom: 44 }}>
+                        <h2 style={{
+                            fontFamily: "'Roboto Slab', serif",
+                            fontSize: 22,
+                            fontWeight: 700,
+                            color: "#071426",
+                            marginBottom: 10
+                        }}>{group.title}</h2>
+                        <p style={{
+                            fontFamily: "'Roboto', sans-serif",
+                            fontSize: 15,
+                            color: "rgba(7,20,38,0.65)",
+                            lineHeight: 1.8,
+                            marginBottom: 24
+                        }}>{group.description}</p>
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 14 }}>
+                            {group.list.map((m, i) => (
+                                <div
+                                    key={i}
+                                    style={{
+                                        background: "#fff",
+                                        border: "1px solid rgba(0,0,0,0.06)",
+                                        borderRadius: 12,
+                                        padding: "18px 20px",
+                                        boxShadow: "0 2px 8px rgba(0,0,0,0.01)"
+                                    }}
+                                >
+                                    <div style={{
+                                        fontFamily: "'Roboto Slab', serif",
+                                        fontSize: 15,
+                                        fontWeight: 700,
+                                        color: "#0D9488",
+                                        marginBottom: 6
+                                    }}>{m.name}</div>
+                                    <div style={{
+                                        fontFamily: "'Roboto', sans-serif",
+                                        fontSize: 14,
+                                        color: "rgba(7,20,38,0.65)",
+                                        lineHeight: 1.6
+                                    }}>{m.desc}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ))}
 
                 {/* SVG illustration for specific treatments */}
                 {id === "varicose-veins" && (
@@ -409,6 +541,61 @@ export default function TreatmentPage({ id, onBack, onContact }) {
                         lineHeight: 1.8
                     }}>{t.recovery}</p>
                 </div>
+
+                {/* Prevention */}
+                {t.prevention && (
+                    <div style={{
+                        marginBottom: 60,
+                        padding: "48px 40px",
+                        background: "rgba(13,148,136,0.03)",
+                        border: "1px solid rgba(13,148,136,0.1)",
+                        borderRadius: 24
+                    }}>
+                        <h2 style={{
+                            fontFamily: "'Roboto Slab', serif",
+                            fontSize: 26,
+                            fontWeight: 700,
+                            color: "#071426",
+                            marginBottom: 24,
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 12
+                        }}>Prevention & Self-Care Checklist</h2>
+                        <div style={{ 
+                            display: "grid", 
+                            gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", 
+                            gap: 24 
+                        }}>
+                            {t.prevention.map((item, i) => (
+                                <div key={i} style={{ 
+                                    display: "flex", 
+                                    gap: 16, 
+                                    alignItems: "flex-start",
+                                    padding: "20px",
+                                    background: "#fff",
+                                    borderRadius: 16,
+                                    border: "1px solid rgba(13,148,136,0.08)",
+                                    boxShadow: "0 4px 12px rgba(13,148,136,0.02)"
+                                }}>
+                                    <div style={{
+                                        width: 24, height: 24, borderRadius: "50%",
+                                        background: "rgba(13,148,136,0.1)",
+                                        display: "flex", alignItems: "center", justifyContent: "center",
+                                        marginTop: 2, flexShrink: 0
+                                    }}>
+                                        <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#0D9488" }} />
+                                    </div>
+                                    <div style={{
+                                        fontFamily: "'Roboto', sans-serif",
+                                        fontSize: 15, color: "rgba(7,20,38,0.75)",
+                                        lineHeight: 1.6,
+                                        fontWeight: 500
+                                    }}>{item}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
 
                 {/* Who is suitable */}
                 <div style={{
