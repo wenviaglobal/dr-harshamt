@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FadeIn from '../common/FadeIn';
 import Counter from '../common/Counter';
@@ -72,6 +72,16 @@ function ShieldBadge({ item, delay = 0 }) {
 
 export default function About() {
     const [galleryIdx, setGalleryIdx] = useState(0);
+
+    // Completely eliminates image loading lag by caching gallery images in background
+    useEffect(() => {
+        GALLERY.forEach((item) => {
+            if (item.img) {
+                const img = new Image();
+                img.src = item.img;
+            }
+        });
+    }, []);
 
     return (
         <section id="about" style={{ background: "#FAFBFC", padding: "clamp(28px, 5vw, 56px) 0", scrollMarginTop: 80 }}>
