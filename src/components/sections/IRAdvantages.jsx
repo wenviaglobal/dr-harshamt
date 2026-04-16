@@ -58,14 +58,14 @@ function Hexagon({ item, size = 140, delay = 0 }) {
             }}>
                 {item.icon && <span style={{ fontSize: item.isCenter ? 0 : 28, marginBottom: 4 }}>{item.icon}</span>}
                 <span style={{
-                    fontSize: item.isCenter ? 11 : 11,
+                    fontSize: item.isCenter ? (size < 100 ? 9 : 11) : (size < 100 ? 9 : 11),
                     fontWeight: 800, color: "#fff",
-                    textAlign: "center", lineHeight: 1.3,
+                    textAlign: "center", lineHeight: 1.2,
                     fontFamily: "'Roboto', sans-serif",
                     letterSpacing: item.isCenter ? "0.08em" : "0.02em",
                     textTransform: "uppercase",
                     whiteSpace: "pre-line",
-                    padding: "0 6px"
+                    padding: "0 4px"
                 }}>{item.label}</span>
             </div>
         </motion.div>
@@ -83,8 +83,8 @@ export default function IRAdvantages() {
         return () => window.removeEventListener('resize', check);
     }, []);
 
-    const hexSize = isMobile ? 100 : 130;
-    const verticalGap = isMobile ? -26 : -32;
+    const hexSize = isMobile ? 84 : 130;
+    const verticalGap = isMobile ? -22 : -32;
 
     return (
         <section style={{ background: "#F8FAFC", padding: "clamp(28px, 5vw, 56px) 0" }}>
