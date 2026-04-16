@@ -113,14 +113,15 @@ export const galleryImages=[
         img2:gallery2,
         img3:gallery3,
         img4:gallery4,
-        img5:gallery5
+        img5:gallery5,
+        img6:doc2
     }
 
 ]
 
 export const heroImages=[
     {img:drHarshaMain},
-    {img:doc2},
+    {img:gallery4},
     {img:doc1},
     {img:gallery7}
 ]

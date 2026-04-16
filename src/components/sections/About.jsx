@@ -310,22 +310,32 @@ export default function About() {
 
                         {/* Main large image */}
                         <div style={{ position: "relative", maxWidth: 800, margin: "0 auto" }}>
-                            <div style={{
+                            <motion.div layout style={{
                                 borderRadius: 16, overflow: "hidden",
-                                aspectRatio: "16/10", position: "relative",
-                                boxShadow: "0 8px 30px rgba(0,0,0,0.12)"
+                                position: "relative",
+                                width: "fit-content",
+                                margin: "0 auto",
+                                boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
+                                background: "#071426"
                             }}>
-                                <AnimatePresence mode="wait">
+                                {/* Invisible Anchor prevents sudden layout collapse & triggers smooth resizing */}
+                                <motion.img
+                                    layout
+                                    src={GALLERY[galleryIdx].img}
+                                    alt="anchor"
+                                    style={{ maxWidth: "100%", maxHeight: "75vh", display: "block", visibility: "hidden" }}
+                                />
+                                <AnimatePresence>
                                     <motion.img
+                                        layout
                                         key={galleryIdx}
                                         src={GALLERY[galleryIdx].img}
                                         alt={`${GALLERY[galleryIdx].label} — Dr. Harsha M T, Interventional Radiologist Bengaluru`}
-                                        loading="lazy"
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.4 }}
-                                        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+                                        style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, maxWidth: "100%", maxHeight: "75vh", display: "block", margin: "auto" }}
                                     />
                                 </AnimatePresence>
                                 <div style={{
@@ -334,35 +344,34 @@ export default function About() {
                                     padding: "30px 20px 16px"
                                 }}>
                                 </div>
-                            </div>
-
-                            {/* Prev / Next buttons */}
-                            <button
-                                onClick={() => setGalleryIdx(p => p === 0 ? GALLERY.length - 1 : p - 1)}
-                                style={{
-                                    position: "absolute", top: "50%", left: 10,
-                                    transform: "translateY(-50%)",
-                                    width: 44, height: 44, borderRadius: "50%",
-                                    background: "rgba(255,255,255,0.9)", border: "1px solid #E5E7EB",
-                                    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                                    display: "flex", alignItems: "center", justifyContent: "center",
-                                    cursor: "pointer", fontSize: 20, color: "#1F2937",
-                                    zIndex: 2
-                                }}
-                            >&lsaquo;</button>
-                            <button
-                                onClick={() => setGalleryIdx(p => (p + 1) % GALLERY.length)}
-                                style={{
-                                    position: "absolute", top: "50%", right: 10,
-                                    transform: "translateY(-50%)",
-                                    width: 44, height: 44, borderRadius: "50%",
-                                    background: "rgba(255,255,255,0.9)", border: "1px solid #E5E7EB",
-                                    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                                    display: "flex", alignItems: "center", justifyContent: "center",
-                                    cursor: "pointer", fontSize: 20, color: "#1F2937",
-                                    zIndex: 2
-                                }}
-                            >&rsaquo;</button>
+                                {/* Prev / Next buttons */}
+                                <button
+                                    onClick={() => setGalleryIdx(p => p === 0 ? GALLERY.length - 1 : p - 1)}
+                                    style={{
+                                        position: "absolute", top: "50%", left: 16,
+                                        transform: "translateY(-50%)",
+                                        width: 44, height: 44, borderRadius: "50%",
+                                        background: "rgba(255,255,255,0.9)", border: "1px solid #E5E7EB",
+                                        boxShadow: "0 2px 12px rgba(0,0,0,0.15)",
+                                        display: "flex", alignItems: "center", justifyContent: "center",
+                                        cursor: "pointer", fontSize: 20, color: "#1F2937",
+                                        zIndex: 10
+                                    }}
+                                >&lsaquo;</button>
+                                <button
+                                    onClick={() => setGalleryIdx(p => (p + 1) % GALLERY.length)}
+                                    style={{
+                                        position: "absolute", top: "50%", right: 16,
+                                        transform: "translateY(-50%)",
+                                        width: 44, height: 44, borderRadius: "50%",
+                                        background: "rgba(255,255,255,0.9)", border: "1px solid #E5E7EB",
+                                        boxShadow: "0 2px 12px rgba(0,0,0,0.15)",
+                                        display: "flex", alignItems: "center", justifyContent: "center",
+                                        cursor: "pointer", fontSize: 20, color: "#1F2937",
+                                        zIndex: 10
+                                    }}
+                                >&rsaquo;</button>
+                            </motion.div>
                         </div>
 
                         {/* Dot indicators */}

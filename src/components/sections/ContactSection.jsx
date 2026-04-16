@@ -203,6 +203,7 @@ const handleSubmit = async (e) => {
                                         }}
                                     >
                                         <option value="">Select a condition</option>
+                                        <option value="General consultation/ Other options">General consultation / Other Options</option>
                                         {SERVICES.map(s => (
                                             <option key={s.t} value={s.t}>{s.t}</option>
                                         ))}
