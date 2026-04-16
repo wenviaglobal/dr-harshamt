@@ -51,6 +51,7 @@ export default function Navbar({ onNav }) {
     const navigate = (href) => {
         setMobileOpen(false);
         setMobileServicesOpen(false);
+        
         if (href.startsWith("/")) {
             const p = href.substring(1);
             const isTargetPage = window.location.pathname === href;
@@ -58,18 +59,24 @@ export default function Navbar({ onNav }) {
             if (!isTargetPage) {
                 window.history.pushState({}, '', href);
                 onNav(p);
+                // Force scroll after state update in App.jsx
             } else {
-                document.querySelector("#" + p)?.scrollIntoView({ behavior: "smooth" });
+                // Already on the page, just scroll
+                const el = document.querySelector("#" + p);
+                if (el) el.scrollIntoView({ behavior: "smooth" });
             }
         } else if (href.startsWith("#")) {
             const isHomePage = window.location.pathname === '/' || window.location.pathname === '/about' || window.location.pathname === '/services';
             if (!isHomePage) {
                 window.history.pushState({}, '', '/' + href);
                 onNav("home");
-                setTimeout(() => document.querySelector(href)?.scrollIntoView({ behavior: "smooth" }), 100);
+                setTimeout(() => {
+                    const el = document.querySelector(href);
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                }, 150);
             } else {
-                // Instantly scroll without artificial timeout
-                document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+                const el = document.querySelector(href);
+                if (el) el.scrollIntoView({ behavior: "smooth" });
             }
         }
     };
@@ -238,7 +245,18 @@ export default function Navbar({ onNav }) {
                         return (
                             <div key={n.href}>
                                 <button
-                                    onClick={() => isServices ? setMobileServicesOpen(!mobileServicesOpen) : navigate(n.href)}
+                                    onClick={() => {
+                                        if (isServices) {
+                                            setMobileServicesOpen(!mobileServicesOpen);
+                                            // Scroll to services but don't close the menu if opening submenu
+                                            if (!mobileServicesOpen) {
+                                               navigate(n.href);
+                                               setMobileOpen(true); // Re-open because navigate closes it
+                                            }
+                                        } else {
+                                            navigate(n.href);
+                                        }
+                                    }}
                                     style={{
                                         display: "flex",
                                         alignItems: "center",
