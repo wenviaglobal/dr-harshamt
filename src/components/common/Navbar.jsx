@@ -239,14 +239,20 @@ export default function Navbar({ onNav }) {
                     className="mob-btn"
                     onClick={() => setMobileOpen(!mobileOpen)}
                     style={{
-                        display: "none",
-                        background: "#fff",
-                        border: "1px solid rgba(0,0,0,0.05)",
-                        color: "#1F2937",
-                        borderRadius: 12,
+                        display: isMobile ? "flex" : "none",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        height: 40,
+                        width: 40,
+                        paddingTop: 4,
+                        background: "#111827",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        color: "#fff",
+                        borderRadius: 14,
                         cursor: "pointer",
-                        padding: 8,
-                        marginLeft: "auto"
+                        marginLeft: "auto",
+                        padding: 0,
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
                     }}
                 >{mobileOpen ? <X size={24} /> : <Menu size={24} />}</button>
             </div>
@@ -277,11 +283,12 @@ export default function Navbar({ onNav }) {
                                 <button
                                     onClick={() => {
                                         if (isServices) {
-                                            setMobileServicesOpen(!mobileServicesOpen);
-                                            // Scroll to services but don't close the menu if opening submenu
-                                            if (!mobileServicesOpen) {
-                                               navigate(n.href, true);
-                                               setMobileOpen(true); // Re-open because navigate might have closed if logic changed
+                                            const toggle = !mobileServicesOpen;
+                                            setMobileServicesOpen(toggle);
+                                            // Only navigate if opening
+                                            if (toggle) {
+                                                navigate(n.href, true);
+                                                setMobileOpen(true);
                                             }
                                         } else {
                                             navigate(n.href);
