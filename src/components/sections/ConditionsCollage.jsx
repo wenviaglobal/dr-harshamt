@@ -7,10 +7,19 @@ const hexClip = "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)";
 
 /* Honeycomb diamond layout: 3-4-3-2 = 12 conditions
    Centering different-count rows naturally creates honeycomb offset */
-const ROWS = [
+const ROWS_DESKTOP = [
     { start: 0, count: 3 },
     { start: 3, count: 4 },
     { start: 7, count: 3 },
+    { start: 10, count: 2 },
+];
+
+const ROWS_MOBILE = [
+    { start: 0, count: 2 },
+    { start: 2, count: 2 },
+    { start: 4, count: 2 },
+    { start: 6, count: 2 },
+    { start: 8, count: 2 },
     { start: 10, count: 2 },
 ];
 
@@ -25,7 +34,8 @@ export default function ConditionsCollage({ onTreatment }) {
         return () => window.removeEventListener('resize', check);
     }, []);
 
-    const HEX_W = isMobile ? 130 : 215;
+    const HEX_W = isMobile ? 140 : 215;
+    const ROWS = isMobile ? ROWS_MOBILE : ROWS_DESKTOP;
     const HEX_H = Math.round(HEX_W * 1.1547);
     const OVERLAP = Math.round(HEX_H * 0.25);
 
@@ -88,8 +98,8 @@ export default function ConditionsCollage({ onTreatment }) {
                                 style={{
                                     display: "flex",
                                     justifyContent: "center",
-                                    gap: 10,
-                                    marginTop: rowIdx === 0 ? 0 : -OVERLAP + 4
+                                    gap: isMobile ? 6 : 10,
+                                    marginTop: rowIdx === 0 ? 0 : isMobile ? -OVERLAP + 2 : -OVERLAP + 4
                                 }}
                             >
                                 {items.map((s, i) => {

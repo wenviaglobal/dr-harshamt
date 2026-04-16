@@ -226,12 +226,11 @@ export default function Navbar({ onNav }) {
                     backdropFilter: "blur(24px)",
                     padding: "16px 24px",
                     border: "1px solid rgba(0, 0, 0, 0.05)",
-                    maxHeight: "80vh",
+                    maxHeight: "75vh",
                     overflowY: "auto",
                     boxShadow: "0 30px 60px -12px rgba(0,0,0,0.2)",
                     borderRadius: 28,
                     marginTop: 12,
-                    overflow: "hidden",
                     zIndex: 1001
                 }}>
                     {NAV.map(n => {
