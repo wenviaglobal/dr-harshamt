@@ -10,7 +10,10 @@ export default function Navbar({ onNav }) {
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
     const [showMegaMenu, setShowMegaMenu] = useState(false);
     const [activeService, setActiveService] = useState(SERVICES[0]);
+    const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
     const timeoutRef = useRef(null);
+
+    const isMobile = windowWidth < 700;
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -20,6 +23,7 @@ export default function Navbar({ onNav }) {
 
     useEffect(() => {
         const handleResize = () => {
+            setWindowWidth(window.innerWidth);
             if (window.innerWidth > 768) {
                 setMobileOpen(false);
                 setMobileServicesOpen(false);
@@ -114,9 +118,9 @@ export default function Navbar({ onNav }) {
                     style={{
                         display: "flex",
                         alignItems: "center",
-                        gap: 12,
+                        gap: isMobile ? 8 : 12,
                         cursor: "pointer",
-                        padding: "0 20px"
+                        padding: isMobile ? "0 10px" : "0 20px"
                     }}
                     onClick={() => {
                         window.history.pushState({}, '', '/');
@@ -126,23 +130,28 @@ export default function Navbar({ onNav }) {
                         setMobileServicesOpen(false);
                     }}
                 >
-                    <img src={LogoImg} alt="Dr. Harsha Logo" style={{ height: 70, objectFit: "contain" }} />
+                    <img src={LogoImg} alt="Dr. Harsha Logo" style={{ height: isMobile ? 48 : 70, objectFit: "contain" }} />
                     <div style={{
                         color: "#071426",
-                        fontSize: 20,
+                        fontSize: isMobile ? 15 : 20,
                         fontWeight: 800,
                         fontFamily: "'Roboto Slab', serif",
                         letterSpacing: "-0.01em",
                         whiteSpace: "nowrap",
-                        marginTop:10
+                        marginTop: isMobile ? 2 : 10,
+                        minWidth: 0,
+                        overflow: "hidden"
                     }}>DR. HARSHA M T
                      <p style={{ 
-                            fontSize: 13, 
+                            fontSize: isMobile ? 10 : 13, 
                             fontFamily:"'Roboto', sans-serif",
-                            color: "LinkText", 
-                            lineHeight: 0.5, 
-                            maxWidth: 260,
-                            letterSpacing:0.5
+                            color: "#4B5563", 
+                            lineHeight: 1.2, 
+                            maxWidth: isMobile ? 140 : 260,
+                            letterSpacing: isMobile ? 0.2 : 0.5,
+                            margin: 0,
+                            fontWeight: 600,
+                            opacity: 0.8
                         }}>
                             {/* {DOC.tagline} */}
                             Interventional Radiologist
@@ -153,10 +162,11 @@ export default function Navbar({ onNav }) {
                 {/* Left: Navigation Links */}
                 <div className="desk-nav" style={{
                     flex: 1,
-                    display: "flex",
+                    display: isMobile ? "none" : "flex",
                     alignItems: "center",
                     gap: 8,
                     paddingLeft: 50,
+                    overflow: "hidden"
                 }}>
                     {NAV.map(n => {
                         const isServices = n.label === "Services";
@@ -182,7 +192,8 @@ export default function Navbar({ onNav }) {
                                         transition: "all 0.2s ease",
                                         display: "flex",
                                         alignItems: "center",
-                                        gap: 4
+                                        gap: 4,
+                                    
                                     }}
                                 >
                                     {n.label}
@@ -198,7 +209,8 @@ export default function Navbar({ onNav }) {
                     flex: 1,
                     display: "flex",
                     justifyContent: "flex-end",
-                    paddingRight: 6
+                    paddingRight: 6,
+                    display: isMobile ? "none" : "flex"
                 }} className="desk-nav">
                     <motion.button
                         whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(2, 132, 199, 0.4)" }}
