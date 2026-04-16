@@ -89,7 +89,7 @@ export default function ServicesSection({ onTreatment }) {
                             }}
                         >
                             {/* Image */}
-                            <div style={{ height: 140, overflow: "hidden", position: "relative" }}>
+                            <div style={{ height: 140, overflow: "hidden", position: "relative"}}>
                                 <motion.img
                                     src={s.img}
                                     alt={`${s.t} treatment in Bengaluru — Dr. Harsha M T`}

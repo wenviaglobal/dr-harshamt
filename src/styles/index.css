@@ -337,10 +337,6 @@ section {
   .desk-nav {
     display: none !important;
   }
-
-  .mob-btn {
-    display: block !important;
-  }
   .mob-menu-container {
     display: block !important;
   }

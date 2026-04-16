@@ -10,7 +10,10 @@ export default function Navbar({ onNav }) {
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
     const [showMegaMenu, setShowMegaMenu] = useState(false);
     const [activeService, setActiveService] = useState(SERVICES[0]);
+    const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
     const timeoutRef = useRef(null);
+
+    const isMobile = windowWidth < 700;
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -20,6 +23,7 @@ export default function Navbar({ onNav }) {
 
     useEffect(() => {
         const handleResize = () => {
+            setWindowWidth(window.innerWidth);
             if (window.innerWidth > 768) {
                 setMobileOpen(false);
                 setMobileServicesOpen(false);
@@ -48,10 +52,12 @@ export default function Navbar({ onNav }) {
         timeoutRef.current = setTimeout(() => setShowMegaMenu(false), 200);
     };
 
-    const navigate = (href) => {
-        setMobileOpen(false);
-        setMobileServicesOpen(false);
-        
+    const navigate = (href, keepMobile = false) => {
+        if (!keepMobile) {
+            setMobileOpen(false);
+            setMobileServicesOpen(false);
+        }
+
         if (href.startsWith("/")) {
             const p = href.substring(1);
             const isTargetPage = window.location.pathname === href;
@@ -107,14 +113,14 @@ export default function Navbar({ onNav }) {
             }}>
 
 
-                 {/* Center: Logo */}
+                {/* Center: Logo */}
                 <div
                     style={{
                         display: "flex",
                         alignItems: "center",
-                        gap: 12,
+                        gap: isMobile ? 8 : 12,
                         cursor: "pointer",
-                        padding: "0 20px"
+                        padding: isMobile ? "0 10px" : "0 20px"
                     }}
                     onClick={() => {
                         window.history.pushState({}, '', '/');
@@ -124,23 +130,27 @@ export default function Navbar({ onNav }) {
                         setMobileServicesOpen(false);
                     }}
                 >
-                    <img src={LogoImg} alt="Dr. Harsha Logo" style={{ height: 70, objectFit: "contain" }} />
+                    <img src={LogoImg} alt="Dr. Harsha Logo" style={{ height: isMobile ? 48 : 70, objectFit: "contain" }} />
                     <div style={{
                         color: "#071426",
-                        fontSize: 20,
+                        fontSize: isMobile ? 15 : 20,
                         fontWeight: 800,
                         fontFamily: "'Roboto Slab', serif",
-                        letterSpacing: "-0.01em",
+                        // letterSpacing: "-0.01em",
                         whiteSpace: "nowrap",
-                        marginTop:10
+                        minWidth: 0,
+                        overflow: "hidden"
                     }}>DR. HARSHA M T
-                     <p style={{ 
-                            fontSize: 13, 
-                            fontFamily:"'Roboto', sans-serif",
-                            color: "LinkText", 
-                            lineHeight: 0.5, 
-                            maxWidth: 260,
-                            letterSpacing:0.5
+                        <p style={{
+                            fontSize: isMobile ? 10 : 13,
+                            fontFamily: "'Roboto', sans-serif",
+                            color: "#1668dbff",
+                            lineHeight: 1,
+                            maxWidth: isMobile ? 140 : 260,
+                            letterSpacing: isMobile ? 0.2 : 0.5,
+                            margin: 0,
+                            fontWeight: 900,
+
                         }}>
                             {/* {DOC.tagline} */}
                             Interventional Radiologist
@@ -151,10 +161,11 @@ export default function Navbar({ onNav }) {
                 {/* Left: Navigation Links */}
                 <div className="desk-nav" style={{
                     flex: 1,
-                    display: "flex",
+                    display: isMobile ? "none" : "flex",
                     alignItems: "center",
                     gap: 8,
                     paddingLeft: 50,
+                    overflow: "hidden"
                 }}>
                     {NAV.map(n => {
                         const isServices = n.label === "Services";
@@ -163,7 +174,7 @@ export default function Navbar({ onNav }) {
                                 key={n.href}
                                 onMouseEnter={isServices ? handleMouseEnter : undefined}
                                 onMouseLeave={isServices ? handleMouseLeave : undefined}
-                                style={{ position: "static"}}
+                                style={{ position: "static" }}
                             >
                                 <button
                                     onClick={() => navigate(n.href)}
@@ -180,7 +191,8 @@ export default function Navbar({ onNav }) {
                                         transition: "all 0.2s ease",
                                         display: "flex",
                                         alignItems: "center",
-                                        gap: 4
+                                        gap: 4,
+
                                     }}
                                 >
                                     {n.label}
@@ -194,7 +206,7 @@ export default function Navbar({ onNav }) {
 
                 <div style={{
                     flex: 1,
-                    display: "flex",
+                    display: isMobile ? "none" : "flex",
                     justifyContent: "flex-end",
                     paddingRight: 6
                 }} className="desk-nav">
@@ -226,14 +238,19 @@ export default function Navbar({ onNav }) {
                     className="mob-btn"
                     onClick={() => setMobileOpen(!mobileOpen)}
                     style={{
-                        display: "none",
-                        background: "#fff",
-                        border: "1px solid rgba(0,0,0,0.05)",
-                        color: "#1F2937",
-                        borderRadius: 12,
+                        display: isMobile ? "flex" : "none",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        height: 40,
+                        width: 40,
+                        background: "#081c47ff",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        color: "#fff",
+                        borderRadius: 14,
                         cursor: "pointer",
-                        padding: 8,
-                        marginLeft: "auto"
+                        marginLeft: "auto",
+                        padding: 0,
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
                     }}
                 >{mobileOpen ? <X size={24} /> : <Menu size={24} />}</button>
             </div>
@@ -264,11 +281,12 @@ export default function Navbar({ onNav }) {
                                 <button
                                     onClick={() => {
                                         if (isServices) {
-                                            setMobileServicesOpen(!mobileServicesOpen);
-                                            // Scroll to services but don't close the menu if opening submenu
-                                            if (!mobileServicesOpen) {
-                                               navigate(n.href);
-                                               setMobileOpen(true); // Re-open because navigate closes it
+                                            const toggle = !mobileServicesOpen;
+                                            setMobileServicesOpen(toggle);
+                                            // Only navigate if opening
+                                            if (toggle) {
+                                                navigate(n.href, true);
+                                                setMobileOpen(true);
                                             }
                                         } else {
                                             navigate(n.href);
