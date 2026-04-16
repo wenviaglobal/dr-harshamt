@@ -65,7 +65,6 @@ import imgMusculoskeletal from '../assets/services/CHRONIC MUSCULOSKELETAL PAIN.
 import imgMicroembolisation from '../assets/services/TRANSARTERIAL MICROEMBOLISATION.webp';
 import imgDvt from '../assets/services/DEEP VEIN THROMBOSIS.webp';
 import imgGi from '../assets/services/GI INTERVENTION.webp';
-import imgEmergency from '../assets/services/EMERGENCY INTERVENTION.webp';
 
 
 //Gallery Images
@@ -97,7 +96,6 @@ export const IMG = {
     microembolisation: imgMicroembolisation,
     dvt: imgDvt,
     gi: imgGi,
-    emergency: imgEmergency,
     about: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=800&h=600&fit=crop",
     ir: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&h=500&fit=crop",
     sparsh: "https://www.sparshhospital.com/wp-content/uploads/2025/06/new-logo.svg",
@@ -245,16 +243,7 @@ export const SERVICES = [
         img: IMG.gi,
         hl: false,
         id: "gi-intervention",
-        d: "Advanced treatments for gastrointestinal bleeding, drainage, and feeding tube placement without complex abdominal surgery.",
-    },
-    {
-        icon: ShieldAlert,
-        t: "Emergency Vascular Procedures",
-        sub: "Trauma & Haemorrhage Control",
-        img: IMG.emergency,
-        hl: false,
-        id: "emergency-intervention",
-        d: "Life-saving procedures performed to control internal bleeding and vascular emergencies quickly and effectively.",
+        d: "Advanced treatments for gastrointestinal bleeding, drainage, and feeding tube placement without complex abdominal surgery."
     },
 ];
 

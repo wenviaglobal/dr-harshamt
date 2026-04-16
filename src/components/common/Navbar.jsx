@@ -276,38 +276,54 @@ export default function Navbar({ onNav }) {
                                                 style={{ overflow: "hidden" }}
                                             >
                                                 <div style={{
-                                                    padding: "4px 0 16px 12px",
+                                                    padding: "16px",
                                                     display: "grid",
-                                                    gap: 4,
-                                                    borderLeft: "2px solid #E5E7EB",
-                                                    marginLeft: 4,
-                                                    marginBottom: 12,
-                                                    background: "rgba(37, 99, 235, 0.03)",
-                                                    borderRadius: "0 0 12px 12px"
+                                                    gap: 8,
+                                                    background: "#ffffff",
+                                                    border: "1px solid rgba(0, 0, 0, 0.04)",
+                                                    boxShadow: "inset 0 4px 12px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.03)",
+                                                    borderRadius: 20,
+                                                    marginBottom: 16,
+                                                    marginTop: 8
                                                 }}>
                                                     {SERVICES.map(s => (
-                                                        <button
+                                                        <motion.button
+                                                            whileHover={{ x: 4, backgroundColor: "rgba(37, 99, 235, 0.04)" }}
+                                                            whileTap={{ scale: 0.98 }}
                                                             key={s.id}
                                                             onClick={() => navigate(`/treatment/${s.id}`)}
                                                             style={{
                                                                 width: "100%",
                                                                 textAlign: "left",
-                                                                padding: "10px 12px",
-                                                                background: "none",
+                                                                padding: "10px 14px",
+                                                                background: "transparent",
                                                                 border: "none",
-                                                                color: "#4B5563",
+                                                                color: "#1E293B",
                                                                 fontSize: 14,
+                                                                fontWeight: 600,
                                                                 display: "flex",
                                                                 alignItems: "center",
-                                                                gap: 12,
+                                                                gap: 14,
                                                                 fontFamily: "'Roboto', sans-serif",
                                                                 cursor: "pointer",
-                                                                borderRadius: 8
+                                                                borderRadius: 12,
+                                                                transition: "all 0.2s ease"
                                                             }}
                                                         >
-                                                            <s.icon size={16} color="#0D9488" strokeWidth={2.5} />
-                                                            {s.t}
-                                                        </button>
+                                                            <div style={{
+                                                                display: "flex",
+                                                                alignItems: "center",
+                                                                justifyContent: "center",
+                                                                width: 34,
+                                                                height: 34,
+                                                                borderRadius: 10,
+                                                                background: "rgba(37, 99, 235, 0.08)",
+                                                                flexShrink: 0
+                                                            }}>
+                                                                <s.icon size={18} color="#2563EB" strokeWidth={2.2} />
+                                                            </div>
+                                                            <span style={{ lineHeight: 1.3 }}>{s.t}</span>
+                                                        </motion.button>
                                                     ))}
                                                 </div>
                                             </motion.div>
