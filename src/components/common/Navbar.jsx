@@ -136,22 +136,21 @@ export default function Navbar({ onNav }) {
                         fontSize: isMobile ? 15 : 20,
                         fontWeight: 800,
                         fontFamily: "'Roboto Slab', serif",
-                        letterSpacing: "-0.01em",
+                        // letterSpacing: "-0.01em",
                         whiteSpace: "nowrap",
-                        marginTop: isMobile ? 2 : 10,
                         minWidth: 0,
                         overflow: "hidden"
                     }}>DR. HARSHA M T
                      <p style={{ 
                             fontSize: isMobile ? 10 : 13, 
                             fontFamily:"'Roboto', sans-serif",
-                            color: "#4B5563", 
-                            lineHeight: 1.2, 
+                            color: "#1668dbff", 
+                            lineHeight: 1, 
                             maxWidth: isMobile ? 140 : 260,
                             letterSpacing: isMobile ? 0.2 : 0.5,
                             margin: 0,
-                            fontWeight: 600,
-                            opacity: 0.8
+                            fontWeight: 900,
+                           
                         }}>
                             {/* {DOC.tagline} */}
                             Interventional Radiologist
